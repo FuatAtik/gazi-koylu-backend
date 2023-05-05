@@ -1,0 +1,70 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureCVForm
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<section>
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-11 offset-xl-1 col-lg-12">
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <h2 class="contact-page-title">@Model.FormTitle</h2>
+                </div>
+                <div class="vlt-gap-60"></div>
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <div class="vlt-contact-form vlt-contact-form--style-2">
+                        <div class="vlt-form-row two-col">
+                            <div class="vlt-form-group">
+                                <input
+                                    class="vlt-form-control"
+                                    type="text"
+                                    name="Name" id="Name"
+                                    required="required"
+                                    placeholder=" "/>
+                                <label class="vlt-form-label">@Model.Name</label>
+                            </div>
+                            <div class="vlt-form-group">
+                                <input
+                                    class="vlt-form-control"
+                                    type="email"
+                                    name="Email" id="Email"
+                                    required="required"
+                                    placeholder=" "/>
+                                <label class="vlt-form-label">@Model.Mail </label>
+                            </div>
+                        </div>
+                        <div class="vlt-form-group">
+                            <textarea class="vlt-form-control" name="Message" id="Message" rows="4" placeholder=" "></textarea>
+                            <label class="vlt-form-label">@Model.Message </label>
+                        </div>
+                        <div class="vlt-form-row two-col">
+                            <div class="vlt-form-group form-inline">
+                                <label class="">@Model.SelectFile</label>
+                                <input type="file" id="Resume" name="Resume" accept=".doc,.docx,.pdf" style="margin-left: 10px;">
+                            </div>
+                            <div class="vlt-form-group">
+                                <label class="checkbox">
+                                    <input id="KvkkCheck" name="KvkkCheck" type="checkbox" required="" data-bv-notempty-message="Bu alanı kabul etmelisiniz.">
+                                    <a href="@Model.KvkkUrl" target="_blank">
+                                        <span class="kvkkonaytext">@Model.KvkkText</span>
+                                    </a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-40">
+                        </div>
+                        <div class="contact-cta-wrapper">
+                            <div class="g-recaptcha" data-sitekey="6Ld9x1wiAAAAAF_Coz5t9qd4fQ_vY-6IB58eR2NV"></div>
+                        </div>
+                        <div class="vlt-gap-20"></div>
+                        <div class="contact-cta-wrapper">
+                            <div id="submitButtonCV" class="vlt-btn vlt-btn--secondary vlt-btn--lg">
+                                @Model.SendButton
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

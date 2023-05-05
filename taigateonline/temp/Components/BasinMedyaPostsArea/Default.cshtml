@@ -1,0 +1,105 @@
+@model List<Taigate.Data.Data.Entities.Components.BasinMedyaPostsArea> 
+
+<div class="article-list-grid row a-grid-line">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 grid-item">
+            <div class="article-item mb70">
+                <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".2s" data-wow-offset="150"><a href="@item.RedirectionUrl"><img src="@item.ImageBgUrl" alt="" class="img-fluid"/></a></div>
+                <div class="article-item-title"><a href="@item.RedirectionUrl">@item.Text </a></div>
+                <div class="article-item-date text-grey">@item.Date</div>
+            </div>
+        </div>
+    }
+</div>  
+
+
+ @* <div class="article-list-grid row a-grid-line"> *@
+ @*                <div class="col-md-4 grid-item category-inspiration"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".2s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup1.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Senegal'de Türk Yatırımı 10 Milyon Dolarlık Hal Kompleksi Açıldı! </a></div> *@
+ @*                    <div class="article-item-date text-grey">Ocak 25, 2019</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-product"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".4s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup21.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş Kelebek Pandemi Döneminde Yurtdışı Yatırımlarını Arttırdı...</a></div> *@
+ @*                    <div class="article-item-date text-grey">Ağustos 8, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-tips"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".6s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup2.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş Kelebek Mobilya ‘nın 2020 Ciro Hedefi 1 Milyar TL!</a></div> *@
+ @*                    <div class="article-item-date text-grey">Temmuz 17, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*   *@
+ @*                <div class="col-md-4 grid-item category-inspiration"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".2s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup4.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş Kelebek Mobilya İSO 500’de 52 sıra yükseldi!</a></div> *@
+ @*                    <div class="article-item-date text-grey">Mayıs 05, 2018</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-product"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".4s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup5.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş'tan Filistin, Türkmenistan, Karadağ Ve Özbekistan'da DÖRT…</a></div> *@
+ @*                    <div class="article-item-date text-grey">Temmuz 6, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-news"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".6s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup6.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğanlar Yatırım Holding’den, Doğtaş Kelebek’in Ardindan …</a></div> *@
+ @*                    <div class="article-item-date text-grey">Ağustos 28, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*   *@
+ @*                <div class="col-md-4 grid-item category-tips"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".2s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup7.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">KOSGEB Ile Doğtaş Kelebek Mobilya Arasında Protokol Imzalandı</a></div> *@
+ @*                    <div class="article-item-date text-grey">Mart 12, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-inspiration"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".4s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup10.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş | Kelebek Mobilya 30 Ağustos'ta 70 Mağaza Açacak</a></div> *@
+ @*                    <div class="article-item-date text-grey">Temmuz  18, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-news"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".6s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup9.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş Kelebek Grubu 5 Markasıyla Mobilya Show Yaptı!</a></div> *@
+ @*                    <div class="article-item-date text-grey">Ocak 21, 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*   *@
+ @*                <div class="col-md-4 grid-item category-product"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".2s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup12.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Covid 19 Deneminde Doğtaş Kelebek'te İşten Çıkarma Yok</a></div> *@
+ @*                    <div class="article-item-date text-grey">Nisan 06 , 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-inspiration"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".4s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup13.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Doğtaş'ın Online Alışveriş Markası Ruumstore İle Küçük Alanlara …</a></div> *@
+ @*                    <div class="article-item-date text-grey">Kasım 19 , 2018</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*                <div class="col-md-4 grid-item category-tips"> *@
+ @*                  <div class="article-item mb70"> *@
+ @*                    <div class="article-item-photo zooming wow fadeInDown" data-wow-delay=".6s" data-wow-offset="150"><a href="single-post-no-sidebar.html"><img src="/themes/doganlar/img/MaskGroup14.jpg" alt="" class="img-fluid" /></a></div> *@
+ @*                    <div class="article-item-title"><a href="single-post-no-sidebar.html">Covid19 Ile Mücadelede, DOĞTAŞ | KELEBEK Biz De Varız Dedi!</a></div> *@
+ @*                    <div class="article-item-date text-grey">Nisan 06 , 2020</div> *@
+ @*                  </div> *@
+ @*                </div> *@
+ @*              </div>   *@

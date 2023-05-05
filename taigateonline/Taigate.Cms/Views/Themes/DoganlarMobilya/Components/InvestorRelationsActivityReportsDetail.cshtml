@@ -1,0 +1,20 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.ActivityReportsList
+
+<style>
+  .pdfBookTitle {
+    padding-bottom: 5px;
+    text-align: center;
+  }
+  iframe {
+    width: 80%;
+    margin-left: 10% !important;
+    margin-bottom: 4% !important;
+    height: 750px;
+    margin: 0 auto;
+  }
+</style>
+<div class="pdfBookTitle">
+    <h2>@Model.Title
+    </h2>
+</div>
+<iframe src="@Model.PdfIframeUrl" title="@Model.Title"></iframe>

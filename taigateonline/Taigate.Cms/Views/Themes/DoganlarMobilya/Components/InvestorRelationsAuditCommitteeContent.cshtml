@@ -1,0 +1,12 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.AuditCommittee>
+
+<div class="invest-detail-second">
+    @foreach (var item in Model)
+    {
+        <div class="invest-list-wrap invest-title">
+            <h5>@item.Title</h5>
+            <p>@item.Description</p>
+        </div>
+    }
+    <p><a class="calismaesaslari" href="Localized(DenetimKomitesiCalismaEsaslariURL)">Localized(DenetimKomitesiCalismaEsaslari)</a></p>
+</div>

@@ -1,0 +1,134 @@
+﻿
+@using NonFactors.Mvc.Grid
+@using System.Linq.Expressions
+@using Microsoft.EntityFrameworkCore
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using Taigate.Core
+@using Taigate.Core.Attributes
+@using System.Linq.Dynamic.Core
+@using Taigate.Data.Data.Entities.Base
+@model Taigate.Crispy.ViewModels.DataListViewModel
+
+@{
+    ViewData["Title"] = Model.DbSetProperty.Name;
+    Layout = "_CrispyAdminLayout";
+    List<object> list = new List<object>();
+    list = Model.Data.ToList();
+}
+
+<div class="card">
+  <div class="col-xl-12 xl-50 appointment-sec box-col-6">
+   <div class="row"> 
+     <div class="col-xl-12 appointment">
+       <div class="card">
+         <div class="card-header card-no-border">
+           <div class="header-top">
+             <h5 class="m-0">@Model.DbSetProperty.Name</h5>
+             <div class="card-header-right-icon">
+                 <a class="btn-download btn btn-gradient f-w-500" href="/CrispyAdmin/data/create/@Model.DbSetProperty.Name" data-original-title="" title="">Create new</a>
+             </div>
+           </div>
+         </div>
+         <div class="card-body pt-0">
+           <div class="appointment-table table-responsive">
+                  @(Html
+                      .Grid(list)
+                      .Build((columns) =>
+                      {
+                          // only supports single PKs, not composite ones
+                          var pkProperties = Model.DbContext.Model.FindEntityType(Model.EntityType).FindPrimaryKey().Properties;
+                          var fkProperties = Model.DbContext.Model.FindEntityType(Model.EntityType).GetReferencingForeignKeys();
+                          if (pkProperties.Count == 1)
+                          {
+                              var pKProperty = pkProperties.Single()?.PropertyInfo;
+                   
+                              if (pKProperty != null)
+                              {
+                                  columns.Add(item => "<a class='btn btn-primary' href='" + @Url.Action("EditEntity", new {dbSetName = Model.DbSetProperty.Name, Id = pKProperty.GetValue(item)}) + "'><i data-feather='edit'></i></a>").Encoded(false).Titled("Controls");
+                              }
+                          }
+                   
+                          foreach (var entityProperty in Model.EntityType.GetProperties())
+                          {
+                              ParameterExpression entity = Expression.Parameter(typeof(object), "ent");
+                              var changedType = Expression.Convert(entity, Model.EntityType);
+                              var property = Expression.Property(changedType, entityProperty.Name);
+                              EditorType type = AttributeHelper.GetEditorType(entityProperty);
+                              DropdownModel dropdownModel = AttributeHelper.GetDropdown(entityProperty);
+                              if (dropdownModel!=null)
+                              {
+                              }
+                              switch (type)
+                              {
+                                  case EditorType.SingleText:
+                                      columns.Add(Expression.Lambda<Func<object, string>>(property, entity)).Titled(entityProperty.Name);
+                                      break;
+                                  case EditorType.RichTinyMCE:
+                                      columns.Add(Expression.Lambda<Func<object, string>>(property, entity)).Titled(entityProperty.Name);
+                                      break;
+                                  case EditorType.Datetime:
+                                      columns.Add(Expression.Lambda<Func<object, DateTime>>(property, entity)).Titled(entityProperty.Name);
+                                      break;
+                                  case EditorType.Number:
+                                      columns.Add(Expression.Lambda<Func<object, Int32>>(property, entity)).Titled(entityProperty.Name);
+                                      break;
+                                  case EditorType.Dropdown:
+                                      var item = Expression.Parameter(typeof(object), "enteee");
+                                      var changedTypex = Expression.Convert(item, Model.EntityType);
+                   
+                                      var dataExpr = Expression.Property(changedTypex, dropdownModel.Table);
+                   
+                                      var prop = Expression.Property(dataExpr, dropdownModel.ValueField);
+                   
+                                      // var soap = Expression.Constant("Soap");
+                                      //
+                                      // var equal = Expression.Equal(prop, soap);
+                   
+                                      var lambdax = Expression.Lambda<Func<object, string>>(prop, item);
+                   
+                                      columns.Add(lambdax).Titled(entityProperty.Name);
+                   
+                                      break;
+                                  default:
+                                      if (entityProperty.PropertyType == typeof(Int32))
+                                      {
+                                          var returnTarget = Expression.Label(typeof(Int32));
+                                          var lambda = Expression.Lambda<Func<object, Int32>>(property, entity);
+                                          columns.Add(lambda).Titled(entityProperty.Name);
+                                      }
+                                      break;
+                              }
+                          }
+                          if (pkProperties.Count == 1)
+                          {
+                              var pKProperty = pkProperties.Single()?.PropertyInfo;
+                   
+                              if (pKProperty != null)
+                              {
+                                  columns.Add(item => "<a class='btn btn-danger' href='" + @Url.Action("DeleteEntity", new {dbSetName = Model.DbSetProperty.Name, Id = pKProperty.GetValue(item)}) + "'><i data-feather='trash'></i></a>").Encoded(false).Titled("Controls");
+                              }
+                          }
+                      }
+                      )
+                      .Using(GridFilterMode.Header)
+                      .Empty("No data found")
+                      .Filterable()
+                      .Sortable()
+                      .Pageable()
+                  )
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>    
+</div>
+
+@section Scripts
+{
+    <script>
+           document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+}

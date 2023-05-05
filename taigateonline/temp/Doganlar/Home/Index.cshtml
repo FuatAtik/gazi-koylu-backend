@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="tr">
+ <head>
+     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
+     <meta name="description" content="Doganlar">
+     <meta name="author" content="Group Taiga">
+ 
+     <title>Doğanlar Yatırım Holding  A.Ş.</title>
+ 
+     <!-- CSS -->
+     <link href="/themes/doganlar/css/bootstrap.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/animsition.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/owl.carousel.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/owl.theme.default.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/socicon.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/ionicons.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/animate.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/jquery.fancybox.min.css" rel="stylesheet">
+     <link href="/themes/doganlar/css/jquery.pagepiling.css" rel="stylesheet">
+ 
+     <!-- Main CSS -->
+     <link href="/themes/doganlar/css/style.css" rel="stylesheet">
+ 
+     <!-- Favicons -->
+     <link rel="apple-touch-icon" sizes="180x180" href="/themes/doganlar/favicon/apple-touch-icon.png">
+     <link rel="icon" type="image/png" sizes="32x32" href="/themes/doganlar/favicon/favicon-32x32.png">
+     <link rel="icon" type="image/png" sizes="16x16" href="/themes/doganlar/favicon/favicon-16x16.png">
+     <link rel="manifest" href="/themes/doganlar/favicon/site.webmanifest">
+     <meta name="msapplication-TileColor" content="#da532c">
+     <meta name="theme-color" content="#ffffff">
+ </head>
+
+  <body class="dark-horizontal">
+    <div class="animsition">
+      <div class="wrapper">
+        @await Component.InvokeAsync(MenuArea)
+
+        <div class="home-piling a-pagepiling full-height">
+        @await Component.InvokeAsync(HomeSlider)
+        @await Component.InvokeAsync(HomeVideoPlace)
+        @await Component.InvokeAsync(HomeSvgPlace)
+        @await Component.InvokeAsync(HomeFourPlace)
+        @await Component.InvokeAsync(HomeMarkaPlace)
+        @await Component.InvokeAsync(HomeDavutDoganPlace)
+        @await Component.InvokeAsync(HomeFlagPlace)
+        
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+    <script src="/themes/doganlar/js/smoothscroll.js"></script>
+    <script src="/themes/doganlar/js/popper.min.js"></script>
+    <script src="/themes/doganlar/js/bootstrap.min.js"></script>
+    <script src="/themes/doganlar/js/animsition.min.js"></script>
+    <script src="/themes/doganlar/js/owl.carousel.min.js"></script>
+    <script src="/themes/doganlar/js/wow.min.js"></script>
+    <script src="/themes/doganlar/js/jquery.pagepiling.min.js"></script>
+    <script src="/themes/doganlar/js/isotope.pkgd.min.js"></script>
+    <script src="/themes/doganlar/js/jquery.fancybox.min.js"></script>
+    <script src="/themes/doganlar/js/TweenMax.min.js"></script>
+    <script src="/themes/doganlar/js/ScrollMagic.min.js"></script>
+    <script src="/themes/doganlar/js/animation.gsap.min.js"></script>
+    <script src="/themes/doganlar/js/jquery.viewport.js"></script>
+    <script src="/themes/doganlar/js/jquery.countdown.min.js"></script>
+    <script src="/themes/doganlar/js/script.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('.a-pagepiling').pagepiling({
+          scrollingSpeed: 280,
+          menu: '#menu',
+          loopTop: true,
+          loopBottom: true,
+          navigation: {
+                'position': 'right'
+          },
+          afterLoad: function(anchorLink, index){
+            if(index == 1 || index ==2 || index ==3 || index == 4 || index == 5 || index == 7 || index == 9 || index == 10 || index == 11){ // Section with dark bacgkrounds
+              $('body').addClass('dark-horizontal');
+            }
+            else{
+              $('body').removeClass('dark-horizontal');
+            }
+          },
+          onLeave: function(){
+            $('.section.active .slide-bg-list .slide-bg').removeClass('active').eq(0).addClass('active')
+          }
+        });
+
+        $('.a-pp-prev').on('click', function(){
+          $.fn.pagepiling.moveSectionUp();
+        });
+        $('.a-pp-next').on('click', function(){
+          $.fn.pagepiling.moveSectionDown();
+        });
+      });
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.SearchAlternativeLinks>
+
+@{
+    var counter = 0;
+    var delimeterCount = Model.Count -1;
+}
+<h2>Localized(SearchResults_Sonuc_Bulunamadi_Text)</h2>
+<div class="featured-search-terms">
+    <ul class="featured-search-terms-list">
+        <li class="featured-search-terms-title search-head-text">
+            <span class="title">Localized(SearchResults_EnCokAranan_Text) : </span>
+        </li>
+        @foreach (var item in Model)
+        {
+            <li class="featured-search-terms-item">
+                <a href="@item.Url" class="term">@item.Title</a>
+                @if (delimeterCount > counter)
+                {
+                    <span class="delimeter">,</span>
+                    counter++;
+                }
+            </li>
+        }
+        
+      
+    </ul>
+</div>

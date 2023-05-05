@@ -1,0 +1,67 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureNewsFromUsContent>
+
+@{
+    var tempdate = "";
+}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    </div>
+                </div>
+                <div class="vlt-gap-60">
+                </div>
+                <div class="price-accordion" id="accordion">
+                    @foreach (var item in Model)
+                    {
+                        var year = item.DoganlarFurnitureNewsFromUsContentDates.Year;
+                        if (!tempdate.Contains(year))
+                        {
+                            <h3 class="accordion-title">
+                                @year
+                            </h3>
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                                @foreach (var contentItem in Model)
+                                {
+                                    if (contentItem.DoganlarFurnitureNewsFromUsContentDates.Year == year)
+                                    {
+                                        <!--Award item-->
+                                        <div class="vlt-award-item">
+                                            <a class="vlt-award-item__link" href="@contentItem.NewsRedirectUrl"></a>
+                                            <div class="vlt-award-item__name">
+                                                @if (contentItem.NewsTitle.Length > 120)
+                                                {
+                                                    <p>
+                                                        @contentItem.NewsTitle.Substring(0, 120)...
+                                                    </p>
+                                                }
+                                                else
+                                                {
+                                                    @contentItem.NewsTitle
+                                                }
+                                            </div>
+                                            <a class="vlt-award-item__category" href="@contentItem.NewsRedirectUrl">Localized(Bizden_Haberler_Incele_Text)</a>
+                                            <div class="vlt-award-item__icon">
+                                                <i class="icon-arrow-top-right">
+                                                </i>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                        tempdate += year + ",";
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="vlt-gap-90">
+</div>

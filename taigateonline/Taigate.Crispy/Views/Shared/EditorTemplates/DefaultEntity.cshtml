@@ -1,0 +1,177 @@
+﻿@using Microsoft.AspNetCore.Mvc.ModelBinding
+@using Taigate.Core
+@using Taigate.Core.Attributes
+@using Taigate.Crispy.ViewModels
+
+@{
+    var properties = ViewData.ModelMetadata.Properties.Where(ShouldShow);
+}
+@functions{
+
+    bool ShouldShow(ModelMetadata metadata)
+    {
+        return metadata.ShowForDisplay;
+    // && !metadata.IsComplexType;
+    }
+
+}
+
+@if (ViewData.TemplateInfo.TemplateDepth > 1)
+{
+    if (Model == null)
+    {
+        @ViewData.ModelMetadata.NullDisplayText
+    }
+    else
+    {
+        @ViewData.ModelMetadata.GetDisplayName()
+    }
+}
+else
+{
+    foreach (var prop in properties)
+    {
+        var model = ViewData.Model.GetType();
+        var isHidden = AttributeHelper.IsHidden(model.GetProperty(prop.PropertyName));
+        if (isHidden)
+        {
+            //for post Dropdown datas it is neccessary
+            var isDropdownNotRender = AttributeHelper.IsDropdownNotRender(model.GetProperty(prop.PropertyName));
+        
+            if (isDropdownNotRender)
+                continue;
+            
+            @Html.Hidden(prop.PropertyName)
+            continue;
+        }
+
+        <div class="form-group row mb-3">
+            @if (prop.HideSurroundingHtml)
+            {
+                @Html.Editor(prop.PropertyName)
+            }
+            else if (!string.IsNullOrEmpty(Html.Label(prop.PropertyName).ToString()))
+            {
+                @Html.Label(prop.PropertyName, prop.DisplayName, new {@class = "col-sm-2 col-form-label"})
+            }
+            @{
+                var type = AttributeHelper.GetEditorType(model.GetProperty(prop.PropertyName));
+
+                switch (type)
+                {
+                    case EditorType.Datetime:
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                @Html.Editor(prop.PropertyName, templateName: "DateTime")
+                            </div>
+                        </div>
+                        break;
+                    case EditorType.FileManager:
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3 hide">
+                                @Html.Hidden(prop.PropertyName)
+                            </div>
+                            <div class="mt-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-primary btn-clipboard btn-file-manager" data-id="@prop.PropertyName" data-toggle="modal" data-target="#filemanagermodal" type="button"><i class="fa fa-upload pr-2"></i>Upload</button>
+                                    <button class="btn ml-2 btn-secondary btn-clipboard-cut" data-id="@prop.PropertyName" type="button"><i class="fa fa-trash-o pr-2"></i>X</button>
+                                </div>
+                            </div>
+                            <div id="@(prop.PropertyName)_thumb_holder" class="row">
+
+                            </div>
+                        </div>
+                        break;
+                    case EditorType.RichTinyMCE:
+                        <div class="col-sm-10">
+                            <div class="input-group mb-3">
+                                @Html.Editor(prop.PropertyName, templateName: "MultilineText")
+                            </div>
+                        </div>
+                        break;
+                    case EditorType.CsHtml:
+                        <div class="col-sm-10">
+                            @Html.Hidden(prop.PropertyName)
+                            <div class="input-group mb-3">
+                                <textarea id="code"></textarea>
+                            </div>
+                            <button id="submitCode" type="button" class="btn btn-primary">Update CsHtml</button>
+                            <button id="getCode" type="button" class="btn btn-secondary">Get CsHtml</button>
+                        </div>
+                        break;
+                    case EditorType.Dropdown:
+                        <div class="col-sm-10">
+                            @{
+                        var relatedDropdowns = ViewData["RelatedDropdowns"] as List<DropdownMasterModel>;
+                        var currentRelatedDropdown = relatedDropdowns.FirstOrDefault(x => x.DropdownModel.Table == prop.PropertyName);
+                        var relatedProperty = properties.FirstOrDefault(x => x.PropertyName == currentRelatedDropdown.DropdownModel.FkPropName);
+                        var relatedPropertyValue = relatedProperty.PropertyGetter(Model);
+                        <select id="@currentRelatedDropdown.DropdownModel.FkPropName" name="@currentRelatedDropdown.DropdownModel.FkPropName">
+                            @foreach (var person in (currentRelatedDropdown.DropdownModel.Dropdowns as dynamic))
+                            {
+                                string key = person.GetType().GetProperty(currentRelatedDropdown.DropdownModel.IdField).GetValue(person, null).ToString();
+                                string value = person.GetType().GetProperty(currentRelatedDropdown.DropdownModel.ValueField).GetValue(person, null).ToString();
+                                if ((int) relatedPropertyValue == Convert.ToInt32(key))
+                                {
+                                    <option selected value="@key">@value</option>
+                                }
+                                else
+                                {
+                                    <option value="@key">@value</option>
+                                }
+                            }
+                        </select>
+                            }
+                        </div>
+                        break;
+                    case EditorType.MultiselectDropdown:
+                        <div class="col-sm-10">
+                            @{
+                        var multiSelectRelatedDropdowns = ViewData["MultiSelectRelatedDropdowns"] as List<MultiSelectDropdownMasterModel>;
+                        var multiSelect = (MultiselectDropdownModel) AttributeHelper.GetMultiselectDropdown(model.GetProperty(prop.PropertyName));
+                        var currentMultiSelectRelatedDropdown = multiSelectRelatedDropdowns.FirstOrDefault(x => x.DropdownModel.Table == multiSelect.Table);
+                        var multiSelectRelatedPropertyValues = prop.PropertyGetter(Model);
+                        List<string> selectedItems = new List<string>();
+                        if (multiSelectRelatedPropertyValues!=null)
+                        {
+                            foreach (var multiSelectRelatedPropertyValue in multiSelectRelatedPropertyValues)
+                            {
+                                var parsedValue = multiSelectRelatedPropertyValue.GetType().GetProperty(currentMultiSelectRelatedDropdown.DropdownModel.RefFkName).GetValue(multiSelectRelatedPropertyValue, null).ToString();
+                                selectedItems.Add(parsedValue);
+                            }
+                        }
+                        <select class="multiSelectDropdown" multiple="multiple" id="@currentMultiSelectRelatedDropdown.DropdownModel.PropName" name="@currentMultiSelectRelatedDropdown.DropdownModel.PropName">
+                            @foreach (var person in (currentMultiSelectRelatedDropdown.DropdownModel.Dropdowns as dynamic))
+                            {
+                                string key = person.GetType().GetProperty(currentMultiSelectRelatedDropdown.DropdownModel.IdField).GetValue(person, null).ToString();
+                                string value = person.GetType().GetProperty(currentMultiSelectRelatedDropdown.DropdownModel.ValueField).GetValue(person, null).ToString();
+                                if (selectedItems.Contains(key))
+                                {
+                                    <option selected value="@key">@value</option>
+                                }
+                                else
+                                {
+                                    <option value="@key">@value</option>
+                                }
+                            }
+                        </select>
+                            }
+                        </div>
+                        break;
+                        case EditorType.Number:
+                            @Html.Editor(prop.PropertyName,"Int32")
+                            break;
+                    case EditorType.SingleTextOnlyNumber:
+                        @Html.Editor(prop.PropertyName,"SingleTextOnlyNumber")
+                        break;
+                    default:
+                        <div class="col-sm-10">
+                            @Html.Editor(prop.PropertyName)
+                            @Html.ValidationMessage(prop.PropertyName)
+                        </div>
+                        break;
+                }
+            }
+        </div>
+    }
+}

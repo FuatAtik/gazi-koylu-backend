@@ -1,0 +1,36 @@
+﻿@model Taigate.Crispy.ViewModels.UserViewModel
+@{
+    ViewData["Title"] = ViewBag.DbSetName;
+    Layout = "_CrispyAdminLayout";
+}
+<div class="card">
+    <div class="card-header">
+        <h5>User - Create </h5>
+        <p class="mb-0">| User form details </p>
+    </div>
+
+    <div class="card-body">
+        <form class="form theme-form" asp-controller="Account" asp-action="CreateUser" method="post">
+            <div class="card-body">
+                @Html.EditorForModel("DefaultEntity")
+            </div>
+            <div class="card-footer">
+                <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-pencil-square-o pr-2"></i>Create</button>
+                    <button type="submit" class="btn btn-light ml-2">
+                        <i style="color: #7366ff;" class="fa fa-mail-reply pr-2"></i>@Html.ActionLink("No, go back", "Index", new {Id = ViewBag.DbSetName})
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="image-holder-template" class="col-md-3 hidden">
+    <a href="#">
+        <img class="img-thumbnail" src="#" alt="">
+    </a>
+    <div class="caption">
+        <div class="btn btn-danger mt-10" id="delete-button-template" onclick="deleteFile(this)" data-element="test" data-imgsrc="test">Delete</div>
+    </div>
+</div>

@@ -1,0 +1,102 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.HomePageDoganlarFurnitureAbout
+
+<section class="homepage-third">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-8 homepage-about-text">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-6">
+                        <div class="vlt-gap-160"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Section title-->
+                            <div class="vlt-section-title vlt-section-title--style-1">
+                                <h2 class="vlt-section-title__title">@Model.SectionTitle</h2>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-40"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-5 col-md-6 pl-0">
+                        <!--Simple image-->
+                        <div class="vlt-simple-image">
+                            <div
+                                class="vlt-simple-image__mask"
+                                data-aos="image-mask-animation"
+                                data-aos-delay="0">
+                                <div class="inside"></div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(Model.SectionImage1AltText))
+                            {
+                                <img src="@Model.SectionImage1" alt="@Model.SectionImage1AltText" loading="lazy"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.SectionImage1;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.SectionImage1" alt="@iamgeName" loading="lazy"/>
+                            }
+
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 offset-lg-1 col-md-6">
+                        <div class="vlt-gap-60--md"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                            <p class="about-us-parag">
+                                Raw(Model.SectionContent)
+                            </p>
+                        </div>
+                        <div class="vlt-gap-50"></div>
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
+                            <!--Button-->
+                            <a class="vlt-btn vlt-btn--primary vlt-btn--box-shadow vlt-btn--md" href="@Model.SectionButtonUrl" target="_self">
+                                @Model.SectionButtonTitle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 pr-0 vlt-custom--1599 d-none d-lg-block">
+                <!--Simple image-->
+                <div class="vlt-simple-image d-flex justify-content-end">
+                    <div
+                        class="vlt-simple-image__mask"
+                        data-aos="image-mask-animation"
+                        data-aos-delay="0">
+                        <div class="inside"></div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.SectionImage2AltText))
+                    {
+                        <img  style="border-radius: 0px 0px 0px 14px" src="@Model.SectionImage2" alt="@Model.SectionImage2AltText" loading="lazy"/>
+                    }
+                    else
+                    {
+                        string filePath = Model.SectionImage2;
+                        string[] fileName = filePath.Split('/');
+                        string iamgeName = fileName[^1];
+                        int fileExtPos = iamgeName.LastIndexOf(".");
+                        if (fileExtPos >= 0)
+                        {
+                            iamgeName = iamgeName.Substring(0, fileExtPos);
+                        }
+                        <img  style="border-radius: 0px 0px 0px 14px" src="@Model.SectionImage2" alt="@iamgeName" loading="lazy"/>
+                    }
+                    
+                </div>
+                <div class="vlt-gap-60"></div>
+            </div>
+        </div>
+    </div>
+</section>

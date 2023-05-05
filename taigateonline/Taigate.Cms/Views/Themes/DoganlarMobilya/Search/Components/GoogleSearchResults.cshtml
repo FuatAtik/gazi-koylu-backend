@@ -1,0 +1,81 @@
+@model Taigate.Data.Data.Entities.GoogleSearchResults
+
+
+@{
+    var totalResults = Model.TotalResults - 10;
+}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                @if (totalResults < 1)
+                {
+                    <div class="result-not-found">
+                        Component(SearchAlternativeLinks)
+
+                    </div>
+                }
+                else
+                {
+                    <div class="result-found">
+                        <h2 class="search-title">
+                            <span class="searched-word">'@Model.SearchTerm'</span> kelimesine ait
+                            <span class="searched-word-info">@totalResults </span> sonuç bulunmuştur.
+                        </h2>
+
+                        <div class="search-results">
+                             @foreach (var item in Model.Results)
+                        {
+                            <div class="result-item">
+                                <a class="search-subtitle has-cursor" href="@item.Link">@item.Title</a>
+                                <p>
+                                    @item.Snippet
+                                </p>
+                            </div>
+                        }
+                        </div>
+                       
+
+
+                    </div>
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@{
+    
+    int paginationNumber;
+    if (totalResults%10 != 0)
+    {
+        paginationNumber = totalResults / 10 + 1;
+    }
+    else
+    {
+        paginationNumber = totalResults / 10;
+    }
+}
+
+
+
+<div class="pagination">
+    @for (int i = 1; i <= paginationNumber; i++)
+    {
+        if (i==1)
+        {
+            <a data-searchterm="@Model.SearchTerm" data-pageindex="@i" href="#@i" class="active">@i</a>
+        }
+        else
+        {
+            <a data-searchterm="@Model.SearchTerm" data-pageindex="@i" href="#@i">@i</a>
+        }
+    }
+        
+
+</div>
+

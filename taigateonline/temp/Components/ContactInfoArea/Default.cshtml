@@ -1,0 +1,57 @@
+@model Taigate.Data.Data.Entities.Components.ContactInfoArea
+
+<div class="contact-box">
+          <div class="section-item">
+            <div class="container wow fadeInUp" data-wow-delay=".2s">
+              <div class="mt50 mb60">
+                <h3 class="fs30 mt90 wow fadeInUp contact-title  text-blue" data-wow-delay=".6s">@Model.TopTitle</h3>
+              </div>
+              <div class="contact-page">
+                <div class="page-body">
+                      <div class="contact-content">
+                          <div class="contact-info">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32.628" height="32.688" viewBox="0 0 32.628 32.688">
+                                <path id="Icon_feather-phone" data-name="Icon feather-phone" d="M32.793,25.225v4.469a2.979,2.979,0,0,1-3.247,2.979A29.479,29.479,0,0,1,16.691,28.1a29.047,29.047,0,0,1-8.938-8.938A29.479,29.479,0,0,1,3.18,6.247,2.979,2.979,0,0,1,6.144,3h4.469a2.979,2.979,0,0,1,2.979,2.562,19.126,19.126,0,0,0,1.043,4.186,2.979,2.979,0,0,1-.67,3.143l-1.892,1.892A23.834,23.834,0,0,0,21.01,23.72L22.9,21.829a2.979,2.979,0,0,1,3.143-.67A19.126,19.126,0,0,0,30.231,22.2,2.979,2.979,0,0,1,32.793,25.225Z" transform="translate(-1.667 -1.5)" fill="none" stroke="#000695" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                </svg>
+                                  <a href="tel:+902122813879" class="phone-number">@Model.Phone</a>
+                          </div>
+                          <div class="contact-info">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="29.626" height="25.65" viewBox="0 0 29.626 25.65">
+                                <path id="Icon_zocial-print" data-name="Icon zocial-print" d="M.25,31.15V20.473l3.719-4.136H6.695v2.052H4.9L2.334,21.243V29.1h25.49V21.243l-2.565-2.854h-1.8V16.337h2.725l3.687,4.136V31.15ZM6.695,20.922V10.342L11.536,5.5H23.464V20.922H6.695Zm1.924-1.956H21.54V7.424H13.46v4.842H8.618Z" transform="translate(-0.25 -5.5)" fill="#000695"/>
+                              </svg>
+                                <a href="tel:+902122813879" class="phone-number">@Model.Fax</a>
+                          </div>
+                          <div class="contact-info">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="33.839" height="26.701" viewBox="0 0 33.839 26.701">
+                                  <g id="Icon_feather-mail" data-name="Icon feather-mail" transform="translate(2.107 1.5)">
+                                    <path id="Path_25432" data-name="Path 25432" d="M5.963,6h23.7a2.971,2.971,0,0,1,2.963,2.963V26.738A2.971,2.971,0,0,1,29.664,29.7H5.963A2.971,2.971,0,0,1,3,26.738V8.963A2.971,2.971,0,0,1,5.963,6Z" transform="translate(-3 -6)" fill="none" stroke="#000695" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                    <path id="Path_25433" data-name="Path 25433" d="M32.626,9,17.813,20.64,3,9" transform="translate(-3 -5.674)" fill="none" stroke="#000695" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                  </g>
+                                </svg>
+                                  <a href="mailto:info@doganlarholding.com.tr" class="mail">@Model.Mail</a>
+                          </div>
+                          <div class="contact-info">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28.827" height="34.566" viewBox="0 0 28.827 34.566">
+                                  <g id="Icon_feather-map-pin" data-name="Icon feather-map-pin" transform="translate(1.499 1.5)">
+                                    <path id="Path_25434" data-name="Path 25434" d="M32.077,15c0,10.044-12.914,18.653-12.914,18.653S6.25,25.041,6.25,15a12.914,12.914,0,1,1,25.827,0Z" transform="translate(-6.249 -2.084)" fill="none" stroke="#000695" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                    <path id="Path_25435" data-name="Path 25435" d="M27.255,18.836A4.252,4.252,0,1,1,23,14.583,4.252,4.252,0,0,1,27.255,18.836Z" transform="translate(-10.088 -5.935)" fill="none" stroke="#000695" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                                  </g>
+                                </svg>
+                                  <span class="address">@Model.Adres1<br>@Model.Adres2</span>
+                          </div>
+                          <hr>
+                          <div class="contact-info">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="32.626" height="32.626" viewBox="0 0 32.626 32.626">
+                                <path id="Icon_feather-navigation" data-name="Icon feather-navigation" d="M6.25,18.2,35.876,4.167,21.843,33.793,18.724,21.319Z" transform="translate(-4.75 -2.667)" fill="none" stroke="#000986" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                              </svg>
+                                <a target="_blank" href="https://www.google.com/maps/search/?api=1&query=41.07116553314619,29.01224904738871" class="address">ROTA OLUŞTUR</a>
+                          </div>
+                        </div>
+                      <div>
+                        <iframe class="contactus-map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1503.9493570673237!2d29.012114425131223!3d41.07120658192561!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc7633c02111784f1!2zRG_En2FubGFyIFlhdMSxcsSxbSBIb2xkaW5n!5e0!3m2!1str!2str!4v1606303836913!5m2!1str!2str" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>

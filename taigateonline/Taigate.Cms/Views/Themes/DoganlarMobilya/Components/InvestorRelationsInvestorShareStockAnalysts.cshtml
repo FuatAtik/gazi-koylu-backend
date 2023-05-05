@@ -1,0 +1,24 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.ShareStockAnalyst>
+
+@foreach (var item in Model)
+{
+    <div class="card" style="background-color: #fcfcfc;">
+        <div class="card-body">
+            <h5 class="card-title">Localized(ShareStockAnalysts_Item_Text1)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@item.Item1</h6>
+            <hr>
+            <h5 class="card-title">Localized(ShareStockAnalysts_Item_Text2)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@item.Item2</h6>
+            <hr>
+            @if (string.IsNullOrEmpty(item.Item3))
+            {
+                <h5 class="card-title">Localized(ShareStockAnalysts_Item_Text3)</h5>
+                <h6 class="card-subtitle mb-2 text-muted">@item.Item3</h6>
+                <hr>
+            }
+            <h5 class="card-title">Localized(ShareStockAnalysts_Item_Text4)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@item.Item4</h6>
+        </div>
+    </div>
+    <br>
+}

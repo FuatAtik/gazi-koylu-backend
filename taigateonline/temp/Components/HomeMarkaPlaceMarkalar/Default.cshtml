@@ -1,0 +1,10 @@
+@model List<Taigate.Data.Data.Entities.Components.HomeMarkaPlaceMarkalar>
+
+@foreach (var item in Model)
+{
+    <div class="col partner-item">
+        <a href="@item.RedirectUrl" class="inside">
+            <img src="@item.ImageBgUrl" alt="">
+        </a>
+    </div>
+}

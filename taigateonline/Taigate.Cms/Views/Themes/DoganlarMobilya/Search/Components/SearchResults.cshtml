@@ -1,0 +1,54 @@
+@model List<Taigate.Data.Data.Entities.SearchResults>
+
+ <section>
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                @if (Model.Count < 1)
+                {
+                  
+                  <div class="result-not-found">
+                    Component(SearchAlternativeLinks)
+                    
+                  </div>
+                }
+                else
+                {
+                  <div class="result-found">
+                    <h2 class="search-title">
+                      <span class="searched-word">'@Model[0].SearchString'</span> kelimesine ait
+                      <span class="searched-word-info">@Model.Count </span> sonuç bulunmuştur.
+                    </h2>
+                    
+                    @foreach (var item in Model)
+                    {
+                        if (item.Url.StartsWith("/"))
+                        {
+                          <div class="result-item">
+                            <a class="search-subtitle has-cursor" href="@item.Url">@item.Title</a>
+                            <p>
+                             @item.SubTitle
+                            </p>
+                          </div>
+                        }
+                        else
+                        {
+                          <div class="result-item">
+                            <a class="search-subtitle has-cursor" href="/@item.Url">@item.Title</a>
+                            <p>
+                              @item.SubTitle
+                            </p>
+                          </div>
+                        }
+                    }
+
+                   
+                  </div>
+                }
+                
+
+                
+              </div>
+            </div>
+          </div>
+        </section>

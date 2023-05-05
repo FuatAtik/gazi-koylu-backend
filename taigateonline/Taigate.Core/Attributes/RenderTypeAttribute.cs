@@ -1,0 +1,4 @@
+﻿namespace Taigate.Core.Attributes
+{
+
+}

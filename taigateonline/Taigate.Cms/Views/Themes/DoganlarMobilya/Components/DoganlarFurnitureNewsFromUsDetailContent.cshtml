@@ -1,0 +1,124 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureNewsFromUsContent
+
+@using System.Globalization
+@{
+    CultureInfo culture = new CultureInfo("tr");
+    var dateFormat = Model.NewsDate.ToString("yyyy", culture);
+}
+<section>
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8 offset-lg-2">
+                <!--Single post-->
+                <article class="vlt-single-post vlt-single-post--style-1">
+                    <header class="vlt-single-post__header">
+                        <h2 class="vlt-post-title">@Model.NewsTitle</h2>
+                        <div class="vlt-post-meta">
+                            <span>@dateFormat</span>
+                        </div>
+                    </header>
+                    <div class="vlt-single-post__content">
+                        <!--Simple image-->
+                        @if (!string.IsNullOrEmpty(Model.NewsImage))
+                        {
+                            <div class="vlt-simple-image alignfull">
+                                <div
+                                    class="vlt-simple-image__mask"
+                                    data-aos="image-mask-animation"
+                                    data-aos-delay="0">
+                                    <div class="inside"></div>
+                                </div>
+                                @if (!string.IsNullOrEmpty(Model.NewsImageAltText))
+                                {
+                                    <img src="@Model.NewsImage" alt="@Model.NewsImageAltText" loading="lazy"/>
+                                }
+                                else
+                                {
+                                    string filePath = Model.NewsImage;
+                                    string[] fileName = filePath.Split('/');
+                                    string iamgeName = fileName[^1];
+                                    int fileExtPos = iamgeName.LastIndexOf(".");
+                                    if (fileExtPos >= 0)
+                                    {
+                                        iamgeName = iamgeName.Substring(0, fileExtPos);
+                                    }
+                                    <img src="@Model.NewsImage" alt="@iamgeName" loading="lazy"/>
+                                }
+                            </div>
+                            <div class="vlt-gap-40"></div>
+                        }
+                        @if (!string.IsNullOrEmpty(Model.NewsDescription1))
+                        {
+                            <p>Raw(Model.NewsDescription1)</p>
+                        }
+                        <div class="vlt-gap-30"></div>
+
+                        @if (!string.IsNullOrEmpty(Model.NewsDescription2))
+                        {
+                            <p>
+                                Raw(Model.NewsDescription2)
+                            </p>
+                        }
+                        <div class="vlt-gap-40"></div>
+                        @if (!string.IsNullOrEmpty(Model.SliderImages))
+                        {
+                            var slideImages = @Model.SliderImages.Split(",");
+                            <div class="position-relative d-flex align-items-end justify-content-end">
+                                <div
+                                    class="vlt-content-slider"
+                                    data-navigation-anchor=".vlt-single-post-slider-anchor"
+                                    data-gap=""
+                                    data-loop=""
+                                    data-speed=""
+                                    data-autoplay=""
+                                    data-autoplay-speed=""
+                                    data-slides-centered=""
+                                    data-slide-settings="{}"
+                                    data-free-mode=""
+                                    data-slider-offset=""
+                                    data-mousewheel="">
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            @foreach (var item in slideImages)
+                                            {
+                                                <div class="swiper-slide">
+                                                    <img src="@item" alt="Doğanlar Mobilya Grubu" loading="lazy"/>
+                                                </div>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vlt-slider-controls vlt-slider-controls--style-2 vlt-single-post-slider-anchor has-black-color has-white-background-color position-absolute b-0 r-0">
+                                    <div class="vlt-swiper-button-prev">
+                                        <i class="icon-arrow-left"></i>
+                                    </div>
+                                    <div class="vlt-swiper-pagination"></div>
+                                    <div class="vlt-swiper-button-next">
+                                        <i class="icon-arrow-right"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        <div class="vlt-gap-60"></div>
+                        @if (!string.IsNullOrEmpty(Model.BlockQuote))
+                        {
+                            <blockquote>
+                                Raw(Model.BlockQuote)
+                            </blockquote>
+                        }
+                        <div class="vlt-gap-50"></div>
+                        @if (!string.IsNullOrEmpty(Model.NewsDescription3))
+                        {
+                            <p>
+                                Raw(Model.NewsDescription3)
+                            </p>
+                        }
+                    </div>
+                    <div class="vlt-gap-70"></div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

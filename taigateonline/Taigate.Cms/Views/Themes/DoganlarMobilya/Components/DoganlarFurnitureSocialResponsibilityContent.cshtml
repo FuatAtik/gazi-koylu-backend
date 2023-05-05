@@ -1,0 +1,64 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureSocialResponsibility>
+
+<section>
+    <div class="vlt-gap-80">
+    </div>
+    <div class="container">
+        <div
+            class="vlt-isotope-grid"
+            data-columns="1"
+            data-layout="masonry"
+            data-x-gap="30|30"
+            data-y-gap="60|60"
+            data-controls="#vlt-filter-portfolio-04"
+            data-load-more-selector="#vlt-load-more-portfolio-04">
+            <div class="grid-sizer">
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="grid-item">
+                    <article class="vlt-work vlt-work--style-1">
+                        <div class="vlt-work__media">
+                            <a class="vlt-work__link has-cursor" href="@item.RedirectUrl">
+                            </a>
+
+
+                            @if (!string.IsNullOrEmpty(item.CoverImageAltText))
+                            {
+                               
+                                <img src="@item.CoverImage" alt="@item.CoverImageAltText" loading="lazy"/>
+                            }
+                            else
+                            {
+                                string filePath = item.CoverImage;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img  src="@item.CoverImage" alt="@iamgeName" loading="lazy"/>
+                            }
+
+
+                           
+                        </div>
+                        <div class="vlt-work__meta">
+                            <h5 class="vlt-work__title">
+                                <a href="@item.RedirectUrl">@item.Title</a>
+                            </h5>
+                            <span class="vlt-work__category">
+                                @item.CoverText
+                            </span>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+        <div class="vlt-gap-100">
+        </div>
+    </div>
+    <div class="vlt-gap-120">
+    </div>
+</section>

@@ -1,0 +1,19 @@
+@model Taigate.Data.Data.Entities.Components.OperasyonHaritasiBottomArea
+
+<div class="apply-cta mb70"> 
+    <div class="apply-cta-grid">
+        <div class="cta-container">
+            <div class="font-montserrat-bold fs20">@Model.LeftColText1</div>
+            <div class="font-montserrat-bold fs28">@Model.LeftColText2</div>
+        </div>
+        <div class="cta-container">
+            <div class="font-ubuntu-medium fs20">@Model.MiddleColText1</div>
+            <div class="font-ubuntu-medium fs20">@Model.MiddleColText2</div>
+        </div>
+        <div class="cta-container">
+            <a class="btn font-ubuntu-bold" href="@Model.RedirectUrl">@Model.RedirectText
+                <i class="icon ion-ios-arrow-right"></i>       
+            </a> 
+        </div>
+    </div>
+</div>

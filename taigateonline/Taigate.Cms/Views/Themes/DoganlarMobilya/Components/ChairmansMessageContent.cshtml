@@ -1,0 +1,53 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.ChairmansMessage
+
+<div id="content"></div>
+<section class="board-member">
+    <div class="board-member-wrapper">
+        <div class="board-text">
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                <p class="fz-2">
+                    @Model.ParagText1
+                </p>
+            </div>
+            <div class="vlt-gap-30"></div>
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                <p class="fz-2">
+                    @Model.ParagText2
+                </p>
+            </div>
+            <div class="vlt-gap-30"></div>
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                <p class="board-title">
+                    ’’@Model.ParagText3’’
+                </p>
+            </div>
+            <div class="vlt-gap-30"></div>
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                <p class="board-title">@Model.ChairmanName</p>
+                <p class="board-title">@Model.ChairmaTitle</p>
+            </div>
+        </div>
+        <div class="board-img">
+
+            @if (!string.IsNullOrEmpty(Model.ChairmanImageAltText))
+            {
+               
+                <img src="@Model.ChairmanImage" alt="@Model.ChairmanImageAltText"/>
+            }
+            else
+            {
+                string filePath = Model.ChairmanImage;
+                string[] fileName = filePath.Split('/');
+                string iamgeName = fileName[^1];
+                int fileExtPos = iamgeName.LastIndexOf(".");
+                if (fileExtPos >= 0)
+                {
+                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                }
+                <img src="@Model.ChairmanImage" alt="@iamgeName" loading="lazy"/>
+             
+            }
+     
+        </div>
+    </div>
+</section>

@@ -1,0 +1,15 @@
+@model Taigate.Data.Data.Entities.Components.HomeMarkaPlace
+
+<div class="section our-brand text-center" id="partners">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-10">
+                <h3 class="section-item-title text-white fs36">@Model.Title</h3>
+                <h2 class="fs28 text-white">@Model.Description</h2>
+            </div>
+        </div>
+        <div class="row no-gutters partner-list partner-bordered">
+            @await Component.InvokeAsync(HomeMarkaPlaceMarkalar)
+        </div>
+    </div>
+</div>

@@ -1,0 +1,307 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureBrands
+
+<div class="vlt-page-content">
+<div class="common-hero-area">
+    <div class="vlt-gap-80"></div>
+    <div class="vlt-page-title vlt-page-title--style-2 jarallax">
+
+        @if (!string.IsNullOrEmpty(Model.HeroImageAltText))
+        {
+            <img class="jarallax-img" src="@Model.HeroImage" alt="@Model.HeroImageAltText" loading="lazy"/>
+        }
+        else
+        {
+            string filePath = Model.HeroImage;
+            string[] fileName = filePath.Split('/');
+            string iamgeName = fileName[^1];
+            int fileExtPos = iamgeName.LastIndexOf(".");
+            if (fileExtPos >= 0)
+            {
+                iamgeName = iamgeName.Substring(0, fileExtPos);
+            }
+            <img class="jarallax-img" src="@Model.HeroImage" alt="@iamgeName" loading="lazy"/>
+        }
+        <div class="vlt-page-title__overlay"></div>
+        <div class="container">
+            <h1
+                class="vlt-page-title__title lax"
+                data-lax-translate-y="0 0, vh (vw*0.25)"
+                data-lax-opacity="1 1, (vh*0.5) 0"
+                data-lax-anchor=".vlt-page-title">
+                @Model.HeroTitle
+            </h1>
+        </div>
+    </div>
+</div>
+
+<div id="content"></div>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-lg-8">
+                <div class="brand-detail-title-wrapper">
+
+                    @if (!string.IsNullOrEmpty(Model.BrandDetailLogoAltText))
+                    {
+                        <img src="@Model.BrandDetailLogo" alt="@Model.BrandDetailLogoAltText"/>
+                    }
+                    else
+                    {
+                        string filePath = Model.BrandDetailLogo;
+                        string[] fileName = filePath.Split('/');
+                        string iamgeName = fileName[^1];
+                        int fileExtPos = iamgeName.LastIndexOf(".");
+                        if (fileExtPos >= 0)
+                        {
+                            iamgeName = iamgeName.Substring(0, fileExtPos);
+                        }
+                        <img src="@Model.BrandDetailLogo" alt="@iamgeName"/>
+                    }
+
+
+                    <div class="brand-icons">
+                        <!--Simple link-->
+                        <a class="vlt-simple-link vlt-simple-link--md"
+                           href="@Model.BrandWebSiteUrl"
+                           target="_blank">
+                            @Model.BrandWebSiteText
+                            <i class="icon-arrow-top-right"></i>
+                        </a>
+                        <div class="vlt-post-share has-black-color">
+                            <a class="vlt-social-icon vlt-social-icon--style-3" href="@Model.BrandFacebookUrl">
+                                <i class="socicon-facebook"></i>
+                            </a>
+                            <a class="vlt-social-icon vlt-social-icon--style-3" href="@Model.BrandTwitterUrl">
+                                <i class="socicon-twitter"></i>
+                            </a>
+                            <a class="vlt-social-icon vlt-social-icon--style-3" href="@Model.BrandYouTubeUrl">
+                                <i class="socicon-youtube"></i>
+                            </a>
+                            <a class="vlt-social-icon vlt-social-icon--style-3" href="@Model.BrandInstagramUrl">
+                                <i class="socicon-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                        <p class="fz-4">Raw(Model.BrandShortDescription)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-relative d-flex align-items-end justify-content-end brand-detail-slider">
+        <div
+            class="vlt-content-slider"
+            data-navigation-anchor=".vlt-single-post-slider-anchor"
+            data-gap=""
+            data-loop=""
+            data-speed=""
+            data-autoplay=""
+            data-autoplay-speed=""
+            data-slides-centered=""
+            data-slide-settings="{}"
+            data-free-mode=""
+            data-slider-offset=""
+            data-mousewheel="">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @{
+                        var slideImages = Model.SliderImages.Split(",");
+                        foreach (var item in slideImages)
+                        {
+                            <div class="swiper-slide">
+                                <img src="@item" alt="Doğanlar Mobilya Grubu" loading="lazy"/>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+        <div
+            class="vlt-slider-controls vlt-slider-controls--style-2 vlt-single-post-slider-anchor has-white-color has-dark-blue-background-color position-absolute b-0 r-0">
+            <div class="vlt-swiper-button-prev">
+                <i class="icon-arrow-left"></i>
+            </div>
+            <div class="vlt-swiper-pagination"></div>
+            <div class="vlt-swiper-button-next">
+                <i class="icon-arrow-right"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="brand-detail">
+    <div class="vlt-gap-90"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-11">
+                <div class="brand-number-wrapper">
+                    <div class="number-card">
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Counter up-->
+                            <div
+                                class="vlt-counter-up vlt-counter-up--style-1"
+                                data-animation-speed="1000"
+                                data-delimiter="">
+                                @if (!string.IsNullOrEmpty(Model.NumberTitle1))
+                                {
+                                    <div class="vlt-counter-up__counter">@Model.NumberTitle1</div>
+                                    <div class="vlt-counter-up__title">@Model.NumberText1</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="number-card">
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Counter up-->
+                            <div
+                                class="vlt-counter-up vlt-counter-up--style-1"
+                                data-animation-speed="1000"
+                                data-delimiter="">
+                                @if (!string.IsNullOrEmpty(Model.NumberTitle2))
+                                {
+                                    <div class="vlt-counter-up__counter">@Model.NumberTitle2</div>
+                                    <div class="vlt-counter-up__title">@Model.NumberText2</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="number-card">
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Counter up-->
+                            <div
+                                class="vlt-counter-up vlt-counter-up--style-1"
+                                data-animation-speed="1000"
+                                data-delimiter="">
+                                @if (!string.IsNullOrEmpty(Model.NumberTitle3))
+                                {
+                                    <div class="vlt-counter-up__counter">@Model.NumberTitle3</div>
+                                    <div class="vlt-counter-up__title">@Model.NumberText3</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="number-card">
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <!--Counter up-->
+                            <div
+                                class="vlt-counter-up vlt-counter-up--style-1"
+                                data-animation-speed="1000"
+                                data-delimiter="">
+                                @if (!string.IsNullOrEmpty(Model.NumberTitle4))
+                                {
+                                    <div class="vlt-counter-up__counter">@Model.NumberTitle4</div>
+                                    <div class="vlt-counter-up__title">@Model.NumberText4</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="vlt-gap-30"></div>
+                <p class="number-mini-info">@Model.NumbersInfo</p>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-90"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-11">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3">Raw(Model.BrandParag1)</p>
+                </div>
+                <div class="vlt-gap-30"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                    <p class="fz-3">Raw(Model.BrandParag2)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+    <div class="container position-relative">
+        <div class="row">
+            <div class="col-md-8">
+                <!--Simple image-->
+                <div class="vlt-simple-image">
+                    <div
+                        class="vlt-simple-image__mask"
+                        data-aos="image-mask-animation"
+                        data-aos-delay="0">
+                        <div class="inside"></div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model.DetailImage1AltText))
+                    {
+                        <img src="@Model.DetailImage1" alt="@Model.DetailImage1AltText" loading="lazy"/>
+                    }
+                    else
+                    {
+                        string filePath = Model.DetailImage1;
+                        string[] fileName = filePath.Split('/');
+                        string iamgeName = fileName[^1];
+                        int fileExtPos = iamgeName.LastIndexOf(".");
+                        if (fileExtPos >= 0)
+                        {
+                            iamgeName = iamgeName.Substring(0, fileExtPos);
+                        }
+                        <img src="Model.DetailImage1" alt="@iamgeName" loading="lazy"/>
+                    }
+
+
+                </div>
+                <div class="vlt-gap-30--sm"></div>
+            </div>
+            <div class="col-md-8 offset-md-4">
+                <div class="vlt-devide-element reset-mobile">
+                    <!--Simple image-->
+                    <div class="vlt-simple-image">
+                        <div
+                            class="vlt-simple-image__mask"
+                            data-aos="image-mask-animation"
+                            data-aos-delay="0">
+                            <div class="inside"></div>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.DetailImage2AltText))
+                        {
+                            <img src="@Model.DetailImage2" alt="@Model.DetailImage2AltText" loading="lazy"/>
+                        }
+                        else
+                        {
+                            string filePath = Model.DetailImage2;
+                            string[] fileName = filePath.Split('/');
+                            string iamgeName = fileName[^1];
+                            int fileExtPos = iamgeName.LastIndexOf(".");
+                            if (fileExtPos >= 0)
+                            {
+                                iamgeName = iamgeName.Substring(0, fileExtPos);
+                            }
+                            <img src="Model.DetailImage2" alt="@iamgeName" loading="lazy"/>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                            <p>Raw(Model.BrandParag3)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>
+Component(HomePageDoganlarFurnitureBrands)
+</div>

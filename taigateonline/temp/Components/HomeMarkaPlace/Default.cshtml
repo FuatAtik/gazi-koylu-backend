@@ -1,0 +1,41 @@
+@model Taigate.Data.Data.Entities.Components.HomeMarkaPlace
+
+<div class="section pp-scrollable slide slide4">
+    <div class="slide-container">
+        <div class="container text-center">
+            <h3 class="section-item-title text-dark-blue fs36 font-ubuntu-bold">@Model.Title</h3>
+            <h2 class="fs28 text-dark-blue brand-title">@Model.Description</h2>
+            <div class="slide-body">
+                <div class="row no-gutters partner-list partner-bordered">
+                    @await Component.InvokeAsync(HomeMarkaPlaceMarkalar)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* <div class="section pp-scrollable slide slide4"> *@
+@*             <div class="slide-container"> *@
+@*               <div class="container text-center"> *@
+@*                 <h3 class="section-item-title text-dark-blue fs36 font-ubuntu-bold">Markalarımız</h3> *@
+@*                 <h2 class="fs28 text-dark-blue brand-title">Mobilya, enerji, inşaat ve perakende sektörlerinde yurt içi ve yurt dışında aktif olarak *@
+@*                   faaliyet gösteren 8 farklı markamız ile ülke ekonomisine güç katarken doğa dostu *@
+@*                   üretimlerimize devam ediyoruz.</h2> *@
+@* *@
+@*                 <div class="slide-body"> *@
+@*                   <div class="row no-gutters partner-list partner-bordered"> *@
+@*                     <div class="col partner-item"><span class="inside"><img src="~/themes/doganlar/img/dogtas-orjinal.png" alt=""></span></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/kelebek.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/kelebek-mutfak-black.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/ruum-store-black.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/biotrend-blacl.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/dogankent-black.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/dogyap.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/troypark-banner-logo_r1_c1.png" alt=""></a></div> *@
+@*                     <div class="col partner-item"><a href="~/themes/doganlar/#" class="inside"><img src="~/themes/doganlar/img/lova-black.png" alt=""></a></div> *@
+@*                   </div> *@
+@*                 </div> *@
+@*               </div> *@
+@*             </div> *@
+@*           </div> *@

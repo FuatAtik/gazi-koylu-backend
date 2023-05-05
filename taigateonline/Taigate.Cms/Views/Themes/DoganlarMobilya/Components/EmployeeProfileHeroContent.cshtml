@@ -1,0 +1,125 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.EmployeeProfileHeroContent
+
+<section>
+    <div class="vlt-gap-90"></div>
+    <div class="container">
+        <div class="worker-profile-wrapper">
+            <div data-aos="fade-up" data-aos-delay="0" class="worker-card vlt-animated-block">
+                @if (!string.IsNullOrEmpty(Model.Cart1ImageAltText))
+                {
+                    <img src="@Model.Cart1Image" alt="@Model.Cart1ImageAltText"/>
+                }
+                else
+                {
+                    string filePath = Model.Cart1Image;
+                    string[] fileName = filePath.Split('/');
+                    string iamgeName = fileName[^1];
+                    int fileExtPos = iamgeName.LastIndexOf(".");
+                    if (fileExtPos >= 0)
+                    {
+                        iamgeName = iamgeName.Substring(0, fileExtPos);
+                    }
+                    <img src="@Model.Cart1Image" alt="@iamgeName"/>
+                }
+                <div class="text-area">
+                    <h3>@Model.Cart1Title</h3>
+                    <div class="worker-stats">@Model.Cart1Text</div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="0" class="worker-card vlt-animated-block">
+                @if (!string.IsNullOrEmpty(Model.Cart2ImageAltText))
+                {
+                    <img src="@Model.Cart2Image" alt="@Model.Cart2ImageAltText"/>
+                }
+                else
+                {
+                    string filePath = Model.Cart2Image;
+                    string[] fileName = filePath.Split('/');
+                    string iamgeName = fileName[^1];
+                    int fileExtPos = iamgeName.LastIndexOf(".");
+                    if (fileExtPos >= 0)
+                    {
+                        iamgeName = iamgeName.Substring(0, fileExtPos);
+                    }
+                    <img src="@Model.Cart2Image" alt="@iamgeName"/>
+                }
+                <div class="text-area">
+                    <h3>@Model.Cart2Title</h3>
+                    <div class="worker-stats">@Model.Cart2Text</div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="0" class="worker-card vlt-animated-block">
+                @if (!string.IsNullOrEmpty(Model.Cart3ImageAltText))
+                {
+                    <img src="@Model.Cart3Image" alt="@Model.Cart3ImageAltText"/>
+                }
+                else
+                {
+                    string filePath = Model.Cart3Image;
+                    string[] fileName = filePath.Split('/');
+                    string iamgeName = fileName[^1];
+                    int fileExtPos = iamgeName.LastIndexOf(".");
+                    if (fileExtPos >= 0)
+                    {
+                        iamgeName = iamgeName.Substring(0, fileExtPos);
+                    }
+                    <img src="@Model.Cart3Image" alt="@iamgeName"/>
+                }
+                <div class="text-area">
+                    <h3>@Model.Cart3Title</h3>
+                    <div class="worker-stats">@Model.Cart3Text</div>
+                </div>
+            </div>
+        </div>
+        <div class="worker-profile-wrapper-2">
+            <div data-aos="fade-up" data-aos-delay="200" class="worker-card vlt-animated-block">
+                @if (!string.IsNullOrEmpty(Model.Cart4ImageAltText))
+                {
+                    <img src="@Model.Cart4Image" alt="@Model.Cart4ImageAltText"/>
+                }
+                else
+                {
+                    string filePath = Model.Cart4Image;
+                    string[] fileName = filePath.Split('/');
+                    string iamgeName = fileName[^1];
+                    int fileExtPos = iamgeName.LastIndexOf(".");
+                    if (fileExtPos >= 0)
+                    {
+                        iamgeName = iamgeName.Substring(0, fileExtPos);
+                    }
+                    <img src="@Model.Cart4Image" alt="@iamgeName"/>
+                }
+                <div class="text-area">
+                    <h3>@Model.Cart4Title</h3>
+                    <div class="worker-stats">@Model.Cart4Text</div>
+                </div>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="200" class="worker-card vlt-animated-block">
+                @if (!string.IsNullOrEmpty(Model.Cart5ImageAltText))
+                {
+                    <img src="@Model.Cart5Image" alt="@Model.Cart5ImageAltText"/>
+                }
+                else
+                {
+                    string filePath = Model.Cart5Image;
+                    string[] fileName = filePath.Split('/');
+                    string iamgeName = fileName[^1];
+                    int fileExtPos = iamgeName.LastIndexOf(".");
+                    if (fileExtPos >= 0)
+                    {
+                        iamgeName = iamgeName.Substring(0, fileExtPos);
+                    }
+                    <img src="@Model.Cart5Image" alt="@iamgeName"/>
+                }
+                <div class="text-area">
+                    <h3>@Model.Cart5Title</h3>
+                    <div class="worker-stats">@Model.Cart5Text</div>
+                </div>
+            </div>
+        </div>
+        <p data-aos="fade-up" data-aos-delay="400" class="worker-profile-text vlt-animated-block">
+            @Model.SubText
+        </p>
+    </div>
+</section>
+<div class="vlt-gap-90"></div>

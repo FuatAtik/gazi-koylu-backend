@@ -1,0 +1,50 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.EnvironmentContent>
+
+<section>
+    <div class="vlt-gap-80"></div>
+    <div class="container">
+        <div class="media-kit">
+            @foreach (var item in Model)
+            {
+                <div class="grid-item">
+                    <article class="vlt-post vlt-post--style-2">
+                        <div class="vlt-post__media">
+                            @if (!string.IsNullOrEmpty(item.ImageAltText))
+                            {
+                                <a href="@item.RedirectUrl">
+                                    <img src="@item.Image" alt="@item.ImageAltText" loading="lazy"/>
+                                </a>
+                            }
+                            else
+                            {
+                                string filePath = item.Image;
+                                string[] fileName = filePath.Split('/');
+                                string imageName = fileName[^1];
+                                int fileExtPos = imageName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    imageName = imageName.Substring(0, fileExtPos);
+                                }
+                                <a href="@item.RedirectUrl">
+                                    <img src="@item.Image" alt="@imageName" loading="lazy"/>
+                                </a>
+                            }
+                            
+                        </div>
+                        <div class="vlt-post__content vlt-post__content-width">
+                            <header class="vlt-post__header">
+                                <a href="@item.RedirectUrl">
+                                    <h3 class="vlt-post-title">@item.Title</h3>
+                                </a>
+                            </header>
+                        </div>
+                    </article>
+                </div>
+            }
+        </div>
+        <div class="vlt-gap-100"></div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>
+
+

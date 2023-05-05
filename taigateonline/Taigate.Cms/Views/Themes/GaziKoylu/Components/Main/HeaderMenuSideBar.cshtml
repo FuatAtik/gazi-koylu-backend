@@ -1,0 +1,27 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.Header
+
+<div class="offcanvas-menu-wrap" id="offcanvas-wrap" data-position="left">
+    <div class="close-btn offcanvas-close"><i class="fas fa-times"></i></div>
+    <div class="offcanvas-content">
+        <div class="offcanvas-logo">
+            <a href="/"><img src="@Model.BlackLogo" alt="Logo"></a>
+        </div>
+        <nav>
+            <ul class="offcanvas-nav">
+                <li class="nav-item">
+                    <a href="@Model.MenuItem1Url">@Model.MenuItem1Text</a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Model.MenuItem2Url">@Model.MenuItem2Text</a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Model.MenuItem3Url">@Model.MenuItem3Text</a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Model.MenuItem4Url">@Model.MenuItem4Text</a>
+                </li>
+            </ul>
+        </nav>
+        Component(HeaderMenuSideBarSocialList)
+    </div>
+</div>

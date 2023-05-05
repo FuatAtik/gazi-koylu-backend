@@ -1,0 +1,23 @@
+@model List<Taigate.Data.Data.Entities.Components.InsanKaynaklariSlideArea>
+
+<div class="">
+            <div class="section-mini">
+              <div class="project-carousel-3d carousel-container wow fadeIn a-play" data-wow-offset="250" data-wow-duration="0.2s">
+                <div class="a-project-carousel owl-carousel owl-theme nav-square nav-white-red nav-inside">
+                  @foreach (var item in Model)
+                  {
+                    <a href="@item.RedirectUrl" class="project-carousel-item">
+                      <div class="project-carousel-photo" style="background-image:url(@item.ImageBgUrl)"></div>
+                      <div class="project-carousel-detail">
+                        <h2 class="project-carousel-title text-white">@item.Title</h2>
+                        <div class="project-carousel-category text-white">@item.Description</div>
+                      </div>
+                    </a>
+                  }
+                 
+                </div>
+                <div class="mask wow slideInLeft" data-wow-offset="250" data-wow-duration="1.5s"></div>
+              </div>
+            </div>
+
+          </div>

@@ -1,0 +1,100 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.WhyUsSection
+
+<section class="process-wrap-layout3 section-padding-md bg-color-light position-relative">
+    <ul class="shape-holder has-animation active-animation">
+        <li class="animated-bg1 translate-right-75 opacity-animation transition-200 transition-delay-100">
+            <svg width="341px" height="341px">
+                <defs>
+                    <linearGradient id="bg-gradient1" x1="0%" x2="50%" y1="86.603%" y2="0%">
+                        <stop offset="0%" stop-color="rgb(253,253,253)" stop-opacity="1"></stop>
+                        <stop offset="100%" stop-color="rgb(223,170,29)" stop-opacity="1"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#bg-gradient1)" opacity="0.051" d="M170.500,-0.000 C264.665,-0.000 341.000,76.335 341.000,170.500 C341.000,264.664 264.665,341.000 170.500,341.000 C76.335,341.000 -0.000,264.664 -0.000,170.500 C-0.000,76.335 76.335,-0.000 170.500,-0.000 Z"></path>
+            </svg>
+        </li>
+        <li class="animated-bg2 translate-right-75 opacity-animation transition-200 transition-delay-1000">
+            <svg width="433px" height="433px">
+                <defs>
+                    <linearGradient id="bg-gradient2" x1="0%" x2="50%" y1="86.603%" y2="0%">
+                        <stop offset="0%" stop-color="rgb(253,253,253)" stop-opacity="1"></stop>
+                        <stop offset="100%" stop-color="rgb(223,170,29)" stop-opacity="1"></stop>
+                    </linearGradient>
+                </defs>
+                <path fill="url(#bg-gradient2)" opacity="0.051" d="M216.500,-0.000 C336.070,-0.000 433.000,96.930 433.000,216.500 C433.000,336.069 336.070,433.000 216.500,433.000 C96.930,433.000 -0.000,336.069 -0.000,216.500 C-0.000,96.930 96.930,-0.000 216.500,-0.000 Z"></path>
+            </svg>
+        </li>
+    </ul>
+    <div class="container has-animation active-animation">
+        <div class="section-heading heading-dark heading-layout1">
+            <h2 class="heading-main-title">@Model.Title</h2>
+            <p class="heading-paragraph">@Model.SubTitle</p>
+        </div>
+        <div class="process-shap-layout3">
+            <ul class="shap-point">
+                <li class="start-point">
+                    <div class="opacity-animation transition-50 transition-delay-10">
+                        <i class="fas fa-circle"></i>
+                    </div>
+                </li>
+                <li class="end-point">
+                    <div class="opacity-animation transition-50 transition-delay-3700">
+                        <i class="fas fa-location-arrow"></i>
+                    </div>
+                </li>
+            </ul>
+            <svg width="1175.5" height="145.5">
+                <g fill="none" stroke-width="2">
+                    <path class="dashed1" stroke="rgba(17, 17, 17, 0.2)" stroke-dasharray="6, 6" stroke-linecap="butt" stroke-linejoin="miter" d="M4.874,5.310 C4.874,5.310 160.876,216.949 377.890,107.556 C377.890,107.556 612.318,-26.577 759.317,91.500 C759.317,91.500 971.500,225.630 1169.809,1.491"></path>
+                    <path class="dashed2" stroke="white" stroke-dasharray="6, 6" stroke-linecap="butt" stroke-linejoin="miter" d="M4.874,5.310 C4.874,5.310 160.876,216.949 377.890,107.556 C377.890,107.556 612.318,-26.577 759.317,91.500 C759.317,91.500 971.500,225.630 1169.809,1.491"></path>
+                </g>
+            </svg>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 col-12 translate-bottom-10 opacity-animation transition-100 transition-delay-100">
+                <div class="process-box-layout3">
+                    <div class="item-icon california">
+                        <i class="flaticon-responsive-design"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">@Model.CartTitle1</h3>
+                        <p>@Model.CartDescription1</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12 translate-bottom-10 opacity-animation transition-100 transition-delay-900">
+                <div class="process-box-layout3">
+                    <div class="item-icon emerald">
+                        <i class="flaticon-layers"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">@Model.CartTitle2</h3>
+                        <p>@Model.CartDescription2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12 translate-bottom-10 opacity-animation transition-100 transition-delay-1500">
+                <div class="process-box-layout3">
+                    <div class="item-icon royal-blue">
+                        <i class="flaticon-clean"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">@Model.CartTitle3</h3>
+                        <p>@Model.CartDescription3</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 col-12 translate-bottom-10 opacity-animation transition-100 transition-delay-2500">
+                <div class="process-box-layout3">
+                    <div class="item-icon dodger-blue">
+                        <i class="flaticon-idea"></i>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">@Model.CartTitle4</h3>
+                        <p>@Model.CartDescription4</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

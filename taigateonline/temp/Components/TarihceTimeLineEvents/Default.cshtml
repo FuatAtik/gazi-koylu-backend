@@ -1,0 +1,44 @@
+@model List<Taigate.Data.Data.Entities.Components.TarihceTimeLineEvents>
+
+<div class="cd-h-timeline__events">
+    <ol>
+        @foreach (var item in Model)
+        {
+            <li class="cd-h-timeline__event text-component">
+            <div class="medium-container container">
+                <div class="image mask-skew wow fadeIn" data-wow-offset="150" data-wow-duration="0.2s"
+                     data-wow-delay=".3s">
+                    <div class="mask wow slideInLeft" data-wow-offset="150" data-wow-duration="1.2s"
+                         data-wow-delay=".3s">
+                        <div class="inside"></div>
+                    </div>
+                    <img src="@item.ImageBgUrl" alt="" class="img-fluid"/>
+                </div>
+                <div class="section-item text-left mt-5">
+                    <div class="row">
+                        <div class="col-md-3 blue-top-line main-title">
+                            <h2 class="mb-1 text-blue fs30">@item.Title</h2>
+                            <div class="section-item-title-xs-narrow text-dark-blue font-montserrat-bold">
+                                @item.Description
+                            </div>
+                        </div>
+                        <div class="col-md-8 blue-top-line">
+                            <div class="fs18 text-grey">
+                                @item.Parag1
+                            </div>
+                            <div class="fs18 text-grey mt20">
+                                @item.Parag2
+                            </div>
+                            <div class="fs18 text-grey mt20">
+                                @item.Parag3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </li>
+        }
+        
+    </ol>
+</div>

@@ -1,0 +1,8 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.FooterBrandList>
+
+@foreach (var item in Model)
+{
+    <li>
+        <a class="list-item" href="@item.RedirectUrl">@item.Title</a>
+    </li>
+}

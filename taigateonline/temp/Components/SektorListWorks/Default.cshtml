@@ -1,0 +1,60 @@
+@model Taigate.Data.Data.Entities.Components.MarkaListWorks
+
+<div class="project-list-flash row no-gutters a-grid">
+    <div class="grid-item col-sm-6">
+        <div class="project-list-title">
+            <h3 class="fs14 text-dark-blue">@Model.Text1</h3>
+            <h2 class="fs36 text-dark-blue mt30">
+                <span class="font-ubuntu-bold">@Model.Text2</span> <br> <span class="font-ubuntu-light">@Model.Text3</span>
+            </h2>
+        </div>
+    </div>
+    <div class="grid-item col-sm-6">
+        <a href="@Model.RedirectUrl1" class="project-item">
+            <div class="project-carousel-photo" style="background-image:url(@Model.ImageBgUrl1)"></div>
+            <div class="project-carousel-detail">
+                <h2 class="project-carousel-title">@Model.WorkTitle1</h2>
+                <div class="project-carousel-go">
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <div class="project-carousel-category">@Model.RedirectText </div>
+            </div>
+        </a>
+    </div>
+    <div class="grid-item col-sm-6">
+        <a href="@Model.RedirectUrl2" class="project-item">
+            <div class="project-carousel-photo" style="background-image:url(@Model.ImageBgUrl2)"></div>
+            <div class="project-carousel-detail">
+                <h2 class="project-carousel-title text-white">@Model.WorkTitle2</h2>
+                <div class="project-carousel-go">
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <div class="project-carousel-category text-white">@Model.RedirectText</div>
+            </div>
+        </a>
+    </div>
+    <div class="grid-item col-sm-6">
+        <a href="@Model.RedirectUrl3" class="project-item">
+            <div class="project-carousel-photo" style="background-image:url(@Model.ImageBgUrl3)"></div>
+            <div class="project-carousel-detail">
+                <h2 class="project-carousel-title">@Model.WorkTitle3</h2>
+                <div class="project-carousel-go">
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <div class="project-carousel-category">@Model.RedirectText</div>
+            </div>
+        </a>
+    </div>
+    <div class="grid-item col-sm-6">
+        <a href="@Model.RedirectUrl4" class="project-item">
+            <div class="project-carousel-photo" style="background-image:url(@Model.ImageBgUrl4)"></div>
+            <div class="project-carousel-detail">
+                <h2 class="project-carousel-title">@Model.WorkTitle4</h2>
+                <div class="project-carousel-go">
+                    <i class="icon ion-ios-arrow-right"></i>
+                </div>
+                <div class="project-carousel-category">@Model.RedirectText</div>
+            </div>
+        </a>
+    </div>
+</div>

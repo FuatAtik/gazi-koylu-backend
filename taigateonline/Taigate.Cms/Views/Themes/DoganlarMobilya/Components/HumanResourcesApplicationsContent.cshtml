@@ -1,0 +1,32 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.HumanResourcesApplicationsContent>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-center">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    </div>
+                </div>
+                <div class="vlt-gap-60"></div>
+
+                <div class="price-accordion human-resources-accordion" id="accordion">
+                    @foreach (var item in Model)
+                    {
+                        <h3 class="accordion-title human-resources-title">@item.Title</h3>
+                        <div>
+                            <div class="vlt-gap-20"></div>
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                                @* @Raw(item.Description) *@
+                                @item.Description
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="vlt-gap-90"></div>

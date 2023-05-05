@@ -1,0 +1,47 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.HomePageDoganlarFurnitureCompanyProfileSection>
+
+<section class="homepage-fifth">
+  <div class="vlt-gap-120"></div>
+  <div class="container">
+    <div
+      class="vlt-isotope-grid"
+      data-columns="4"
+      data-layout="masonry"
+      data-x-gap="30|30"
+      data-y-gap="30|30"
+      data-controls="#vlt-filter-portfolio-05"
+      data-load-more-selector="#vlt-load-more-portfolio-05">
+      <div class="grid-sizer"></div>
+      @foreach (var item in Model)
+      {
+        <div class="grid-item filter-design">
+          <article class="vlt-work vlt-work--style-2">
+            <div class="vlt-work__media">
+              <a class="vlt-work__link has-cursor" href="@item.SectionRedirectUrl"></a>
+              
+               @if (!string.IsNullOrEmpty(item.SectionImageAltText))
+                      {
+                        <img src="@item.SectionImage" alt="@item.SectionImageAltText" loading="lazy"/>
+                      }
+                      else
+                      {
+                          string filePath = item.SectionImage;
+                          string[] fileName = filePath.Split('/');
+                          string iamgeName = fileName[^1];
+                          int fileExtPos = iamgeName.LastIndexOf(".");
+                          if (fileExtPos >= 0)
+                          {
+                              iamgeName = iamgeName.Substring(0, fileExtPos);
+                          }
+                        <img src="@item.SectionImage" alt="@iamgeName" loading="lazy"/>
+                      }
+            </div>
+            <div class="vlt-work__meta">
+              <h5 class="vlt-work__title">@item.SectionText</h5>
+            </div>
+          </article>
+        </div>
+      }
+    </div>
+  </div>
+</section>

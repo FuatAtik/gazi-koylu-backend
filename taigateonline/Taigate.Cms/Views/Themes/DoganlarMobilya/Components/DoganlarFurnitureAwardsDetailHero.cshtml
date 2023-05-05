@@ -1,0 +1,30 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureAwardsHero
+
+<div class="common-hero-area">
+    <div class="vlt-gap-80"></div>
+    <div class="vlt-page-title vlt-page-title--style-2 jarallax">
+
+        @if (!string.IsNullOrEmpty(Model.HeroImageAltText))
+        {
+            <img class="jarallax-img" src="@Model.HeroImage" alt="@Model.HeroImageAltText" loading="lazy"/>
+        }
+        else
+        {
+            string filePath = Model.HeroImage;
+            string[] fileName = filePath.Split('/');
+            string iamgeName = fileName[^1];
+            int fileExtPos = iamgeName.LastIndexOf(".");
+            if (fileExtPos >= 0)
+            {
+                iamgeName = iamgeName.Substring(0, fileExtPos);
+            }
+            <img class="jarallax-img" src="@Model.HeroImage" alt="@iamgeName" loading="lazy"/>
+        }
+        <div class="vlt-page-title__overlay"></div>
+        <div class="container">
+            <h1 class="vlt-page-title__title lax" data-lax-translate-y="0 0, vh (vw*0.25)" data-lax-opacity="1 1, (vh*0.5) 0" data-lax-anchor=".vlt-page-title">
+                @Model.HeroTitle
+            </h1>
+        </div>
+    </div>
+</div>

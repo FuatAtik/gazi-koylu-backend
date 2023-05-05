@@ -1,0 +1,10 @@
+﻿@model List<Taigate.Data.Data.Entities.Components.GaziKoylu.ServiceContent>
+
+<ul class="footer-menu">
+    @foreach (var item in Model)
+    {
+        <li>
+            <a href="@item.RedirecUrl">@item.Name</a>
+        </li>
+    }
+</ul>

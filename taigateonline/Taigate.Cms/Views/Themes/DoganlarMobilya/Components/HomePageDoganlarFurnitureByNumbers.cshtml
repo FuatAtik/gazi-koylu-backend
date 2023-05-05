@@ -1,0 +1,128 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.HomePageDoganlarFurnitureByNumbers
+
+<section style="background-color: #918a88">
+    <div class="container">
+        <div class="number-area">
+            <div class="title">
+                <h2>@Model.SectionTitle</h2>
+            </div>
+            <div class="number-area-wrapper">
+                <div class="number-card">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                        <!--Counter up-->
+                        <div
+                            class="vlt-counter-up vlt-counter-up--style-1"
+                            data-animation-speed="1000"
+                            data-delimiter="">
+
+                            @if (!string.IsNullOrEmpty(Model.Item1ImageAltText))
+                            {
+                                <img src="@Model.Item1Image" alt="@Model.Item1ImageAltText"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.Item1Image;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.Item1Image" alt="@iamgeName"/>
+                            }
+                            <div class="vlt-counter-up__counter">@Model.Item1Number</div>
+                            <div class="vlt-counter-up__title">@Model.Item1Text</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="number-card">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                        <!--Counter up-->
+                        <div
+                            class="vlt-counter-up vlt-counter-up--style-1"
+                            data-animation-speed="1000"
+                            data-delimiter="">
+
+                            @if (!string.IsNullOrEmpty(Model.Item2ImageAltText))
+                            {
+                                <img src="@Model.Item2Image" alt="@Model.Item2ImageAltText"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.Item2Image;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.Item2Image" alt="@iamgeName"/>
+                            }
+                            <div class="vlt-counter-up__counter">@Model.Item2Number</div>
+                            <div class="vlt-counter-up__title">@Model.Item2Text</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="number-card">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                        <!--Counter up-->
+                        <div
+                            class="vlt-counter-up vlt-counter-up--style-1"
+                            data-animation-speed="1000"
+                            data-delimiter="">
+
+                            @if (!string.IsNullOrEmpty(Model.Item3ImageAltText))
+                            {
+                                <img src="@Model.Item3Image" alt="@Model.Item3ImageAltText"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.Item3Image;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.Item3Image" alt="@iamgeName"/>
+                            }
+                            <div class="vlt-counter-up__counter">@Model.Item3Number</div>
+                            <div class="vlt-counter-up__title">@Model.Item3Text</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="number-card">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                        <!--Counter up-->
+                        <div
+                            class="vlt-counter-up vlt-counter-up--style-1"
+                            data-animation-speed="1000"
+                            data-delimiter="">
+                            @if (!string.IsNullOrEmpty(Model.Item4ImageAltText))
+                            {
+                                <img src="@Model.Item4Image" alt="@Model.Item4ImageAltText"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.Item4Image;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.Item4Image" alt="@iamgeName"/>
+                            }
+                            <div class="vlt-counter-up__counter">@Model.Item4Number</div>
+                            <h5 class="vlt-counter-up__title">@Model.Item4Text</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

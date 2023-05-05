@@ -1,0 +1,32 @@
+@model Taigate.Data.Data.Entities.Components.KariyerFirsatlariTopArea
+
+<div class="section-mini section-item cta-white">
+    <div class="container">
+        <div class="row justify-content-md-center">
+            <div class="col-lg-10">
+                <h3 class="fs30 wow fadeInUp contact-title  text-blue" data-wow-delay=".6s">
+                    @Model.Description
+                </h3>
+            </div>
+        </div>
+        <div class="apply-cta mt70 ">
+            <div class="apply-cta-grid">
+                <div class="cta-container">
+                    <div class="font-montserrat-bold fs28">@Model.LeftColText1</div>
+                    <div class="font-montserrat fs20">@Model.LeftColText2</div>
+                </div>
+                <div class="cta-container">
+                    <div class="font-ubuntu-medium fs20">@Model.MiddleColText1</div>
+                    <div class="font-ubuntu-medium fs20">@Model.MiddleColText2</div>
+                </div>
+                <div class="cta-container">
+                    <a class="btn font-ubuntu-bold" href="@Model.RedirectUrl">
+                        @Model.RedirectText
+                        <i class="icon ion-ios-arrow-right"></i>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

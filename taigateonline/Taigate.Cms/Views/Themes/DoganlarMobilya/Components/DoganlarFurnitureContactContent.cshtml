@@ -1,0 +1,27 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureContactContent
+
+<div class="vlt-page-content">
+    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+        <div class="vlt-gap-80"></div>
+        <div id="map"></div>
+        <div class="row">
+            <div class="col-lg-10 offset-lg-2 col-md-12">
+                <div class="adress-wrapper">
+                    <h3>@Model.AddressTitle</h3>
+                    <p>
+                        @Model.AddressText
+                    </p>
+                    <div class="phone-area">
+                        <a href="tel:@Model.PhoneNumberUrl">T @Model.PhoneNumber</a>
+                        <a href="fax:@Model.FaxNumberUrl">F @Model.FaxNumber</a>
+                    </div>
+                    <a class="create-route" href="@Model.MapRouteUrl"><i class="icon-Icon-feather-navigation"></i>Localized(Iletisim_Map_Rota_Olustur_Text)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content"></div>
+    @* TODO contact form ayarlanacak *@
+    Component(DoganlarFurnitureContactForm)
+    Component(DoganlarFurnitureFollowUsSection)
+</div>

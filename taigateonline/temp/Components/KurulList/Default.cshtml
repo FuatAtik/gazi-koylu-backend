@@ -1,0 +1,39 @@
+@model List<Taigate.Data.Data.Entities.Components.KurulUye>
+
+<div class="section-item section-mini text-left">
+    <div class="container-fluid">
+        <h3 class="section-item-title text-dark-blue fs36 font-montserrat-bold text-center">YÖNETİM KURULU</h3>
+        <div class="member-list">
+            <div class="row row-50">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-4 col-sm-6">
+                        <div class="member-item">
+                            <div class="member-item-photo zooming">
+                                <a href="">
+                                    <img src="@item.Image" alt=""/>
+                                </a>
+                            </div>
+                            <div class="member-item-name">
+                                <a href="">@item.Signature</a>
+                            </div>
+                            <div class="member-item-status">@item.Title</div>
+                        </div>
+                    </div>
+                }
+       
+
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="member-item">
+                        <div class="member-item-photo zooming">
+                            <a href="about-me.html">
+                                <img src="/themes/doganlar/img/logolu-image.jpg" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

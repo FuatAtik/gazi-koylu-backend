@@ -1,0 +1,67 @@
+@model Taigate.Data.Data.Entities.Components.KurulUye
+@{
+  string modeClass = "slide-dark";
+}
+@* @if (ViewBag.PageType == 1) *@
+@* { *@
+@*   modeClass = "davut-quote"; *@
+@* } *@
+<div class="section pp-scrollable slide slide5 @(modeClass)">
+   <div class="slide-container">
+     <div class="slide-bg"><div class="inside"></div></div>
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-7 col-9 mt50">
+           <div class="a-reviews-carousel reviews-carousel-sm owl-carousel owl-theme">
+             <div class="reviews-carousel-item">
+               <div >
+                 <div class="quote-text">@Model.Parag1
+                 </div>
+                 <div class="quote-text">@Model.Parag2
+                 </div>
+                 <h3 class="quote-big-title">@Model.Text</h3>
+
+                 <div class="reviews-carousel-author text-dark-blue">@Model.Signature</div>
+                 <div class="reviews-carousel-author-status text-dark-blue">@Model.Title</div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
+@* <div class="section pp-scrollable slide slide5 slide-dark"> *@
+@*     <div class="slide-container"> *@
+@*         <div class="slide-bg"><div class="inside"></div></div> *@
+@*         <div class="container"> *@
+@*             <div class="row"> *@
+@*                 <div class="col-lg-7 col-9 mt50"> *@
+@*                     <div class="a-reviews-carousel reviews-carousel-sm owl-carousel owl-theme"> *@
+@*                         <div class="reviews-carousel-item"> *@
+@*                             <div > *@
+@*                                 <div class="quote-text">1972 yılında babamız rahmetli Hacı Ali Doğan mobilya sektörüne ilk  *@
+@*                                     adımı attığında bugünleri hayal etmem   işti şüphesiz. Küçük bir mobilya  *@
+@*                                     dükkânının bu denli gelişip artık bir holding haline geliş seyrine  *@
+@*                                     baktığımızda sayısız başarı görebiliyorum. Daha dün gibi hatırlıyorum  *@
+@*                                     5, 10, 20, 30. yılımıza girdiğimiz o günleri. 40. yılımız da şüphesiz bu  *@
+@*                                     seremonideki yerini aldı… *@
+@*                                 </div> *@
+@*                                 <div class="quote-text">Bütün bu sürecin sonunda ise nihai hedefimiz her zaman ifade ettiğim  *@
+@*                                     gibi arkamızda kalıcı izler bırakmış olmak. Çünkü iyi biliyorum ki  *@
+@*                                     hayatımız sona erdikten sonra hatırlanmanın yegâne yolu budur. *@
+@*                                 </div> *@
+@*                                 <h3 class="quote-big-title">“Asıl varlığımız arkamızda   bıraktığımız izlerdir…”</h3> *@
+@* *@
+@*                                 <div class="reviews-carousel-author text-dark-blue">DAVUT DOĞAN</div> *@
+@*                                 <div class="reviews-carousel-author-status text-dark-blue">Yönetim Kurulu Başkanı</div> *@
+@*                             </div> *@
+@*                         </div> *@
+@*                     </div> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@

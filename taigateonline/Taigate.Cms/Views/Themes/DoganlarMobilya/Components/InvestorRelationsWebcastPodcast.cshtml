@@ -1,0 +1,11 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.WebcastPodcast>
+
+<div class="invest-detail-second">
+    @foreach (var item in Model)
+    {
+        <div class="invest-list-wrap">
+            <h5>@item.Title</h5>
+            <p>@item.Description</p>
+        </div>
+    }
+</div>

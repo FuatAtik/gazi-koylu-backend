@@ -1,0 +1,208 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureAbout
+
+<div class="vlt-page-title vlt-page-title--style-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 offset-md-1">
+                <h1 class="vlt-page-title__title">@Model.Section1Title</h1>
+                <p>
+                    @Model.Section1Text
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="content"></div>
+<div class="vlt-gap-120"></div>
+<!--Section-->
+<section class="jarallax has-gray-color about-us-slider">
+    @if (!string.IsNullOrEmpty(Model.Section1ImageAltText))
+    {
+        <img class="jarallax-img" src="@Model.Section1Image" alt="@Model.Section1ImageAltText" loading="lazy"/>
+    }
+    else
+    {
+        string filePath = Model.Section1Image;
+        string[] fileName = filePath.Split('/');
+        string iamgeName = fileName[^1];
+        int fileExtPos = iamgeName.LastIndexOf(".");
+        if (fileExtPos >= 0)
+        {
+            iamgeName = iamgeName.Substring(0, fileExtPos);
+        }
+        <img class="jarallax-img" src="@Model.Section1Image" alt="@iamgeName" loading="lazy"/>
+    }
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="vlt-stretch-block to-left vlt-devide-section">
+                    <div class="position-relative d-flex align-items-end justify-content-end">
+                        <div
+                            class="vlt-content-slider"
+                            data-navigation-anchor=".vlt-careers-single-slider-anchor"
+                            data-gap=""
+                            data-loop=""
+                            data-speed=""
+                            data-autoplay=""
+                            data-autoplay-speed=""
+                            data-slides-centered=""
+                            data-slide-settings="{}"
+                            data-free-mode=""
+                            data-slider-offset=""
+                            data-mousewheel="">
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    @{
+                                        var slideImages = Model.SliderImages.Split(",");
+                                        foreach (var item in slideImages)
+                                        {
+                                            <div class="swiper-slide">
+                                                <img src="@item" alt="Doğanlar Mobilya Grubu" loading="lazy"/>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="vlt-slider-controls vlt-slider-controls--style-3 vlt-careers-single-slider-anchor has-white-color has-black-background-color position-absolute b-0 r-0">
+                            <div class="vlt-swiper-button-prev">
+                                <i class="icon-arrow-left"></i>
+                            </div>
+                            <div class="vlt-swiper-pagination"></div>
+                            <div class="vlt-swiper-button-next">
+                                <i class="icon-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>
+<!--Section-->
+<section class="jarallax">
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-1 col-lg-5 offset-lg-1">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <!--Section title-->
+                    <div class="vlt-section-title vlt-section-title--style-1">
+                        <h2 class="vlt-section-title__title">
+                            @Model.Section2Title
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-100"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 pr-0">
+                <!--Simple image-->
+                <div class="vlt-simple-image">
+                    <div
+                        class="vlt-simple-image__mask"
+                        data-aos="image-mask-animation"
+                        data-aos-delay="0">
+                        <div class="inside"></div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(Model.Section2CartImage1AltText))
+                    {
+                        <img class="about-us-img-area-1" src="@Model.Section2CartImage1" alt="@Model.Section2CartImage1AltText" loading="lazy"/>
+                    }
+                    else
+                    {
+                        string filePath = Model.Section2CartImage1;
+                        string[] fileName = filePath.Split('/');
+                        string iamgeName = fileName[^1];
+                        int fileExtPos = iamgeName.LastIndexOf(".");
+                        if (fileExtPos >= 0)
+                        {
+                            iamgeName = iamgeName.Substring(0, fileExtPos);
+                        }
+                        <img class="about-us-img-area-1" src="@Model.Section2CartImage1" alt="@iamgeName" loading="lazy"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 offset-md-1">
+                <div class="vlt-gap-80"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <p class="fz-4">@Model.Section2CartText1</p>
+                </div>
+                <div class="vlt-gap-30"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3">
+                        @Model.Section2CartText2
+                    </p>
+                </div>
+                <div class="vlt-gap-40"></div>
+            </div>
+            <div class="col-md-5 offset-md-1 pl-0">
+                <!--Simple image-->
+                <div class="vlt-simple-image">
+                    <div
+                        class="vlt-simple-image__mask"
+                        data-aos="image-mask-animation"
+                        data-aos-delay="0">
+                        <div class="inside"></div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(Model.Section2CartImage2AltText))
+                    {
+                        <img class="about-us-img-area-2" src="@Model.Section2CartImage2" alt="@Model.Section2CartImage2AltText" loading="lazy"/>
+                    }
+                    else
+                    {
+                        string filePath = Model.Section2CartImage2;
+                        string[] fileName = filePath.Split('/');
+                        string iamgeName = fileName[^1];
+                        int fileExtPos = iamgeName.LastIndexOf(".");
+                        if (fileExtPos >= 0)
+                        {
+                            iamgeName = iamgeName.Substring(0, fileExtPos);
+                        }
+                        <img class="about-us-img-area-2" src="@Model.Section2CartImage2" alt="@iamgeName" loading="lazy"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3">
+                        Raw(Model.Section2Parag1)
+                    </p>
+                </div>
+                <div class="vlt-gap-30"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3">
+                        Raw(Model.Section2Parag2)
+                    </p>
+                </div>
+
+                <div class="vlt-gap-30"></div>
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3">
+                        Raw(Model.Section2Parag3)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

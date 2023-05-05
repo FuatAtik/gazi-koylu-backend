@@ -1,0 +1,45 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.HomePageDoganlarFurnitureSlider>
+
+<section class="position-relative homepage-slider">
+    <div class="vlt-gap-80"></div>
+    <div class="vlt-project-showcase vlt-project-showcase--style-5" data-navigation-anchor=".vlt-homepage-02-anchor">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                @foreach (var item in Model)
+                {
+                    <div class="swiper-slide">
+                        <div class="vlt-project-showcase__item">
+                            <div class="vlt-project-showcase__image" style="background-image: url(@item.SliderImage)">
+                            </div>
+                            <div class="d-flex flex-grow-1 flex-shrink-1 align-items-end">
+                                <div class="vlt-project-showcase__content" data-swiper-parallax-x="-300">
+                                    <div class="homepage-slider-wrapper">
+                                        <h1 class="vlt-project-showcase__title has-cursor">
+                                            <a href="#">@item.SliderTitle</a>
+                                        </h1>
+                                        <p>
+                                           Raw(item.SliderContent)
+                                        </p>
+                                        <div class="vlt-swiper-progress vlt-homepage-02-anchor" data-direction="vertical">
+                                            <span class="current"></span>
+                                            <div class="bar"> <span></span> </div>
+                                             <span class="total"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-homepage-02-anchor has-white-color">
+                                <div class="vlt-swiper-button-prev">
+                                    <i class="icon-arrow-left"></i>
+                                </div>
+                                <div class="vlt-swiper-button-next">
+                                    <i class="icon-arrow-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>

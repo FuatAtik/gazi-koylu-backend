@@ -1,0 +1,45 @@
+﻿@using NonFactors.Mvc.Grid
+@using System.Linq.Expressions
+@using Microsoft.EntityFrameworkCore
+@using Taigate.Core
+@using Taigate.Core.Attributes
+@model List<Taigate.Data.Data.Entities.User>
+
+@{
+    ViewData["Title"] = "Users";
+    Layout = "_CrispyAdminLayout";
+}
+<div class="card">
+    <div class="card-header b-l-primary border-3">
+        <h5>User List</h5>
+    </div>
+    <div class="card-header-button border-3">
+        <div class="col-sm-9">
+            @Html.ActionLink("Create new", "CreateUser", "Account",null, new {@class = "btn btn-primary"})
+        </div>
+    </div>
+    @(Html
+        .Grid(Model)
+        .Build((columns) =>
+        {
+            columns.Add(model => model.Id);
+            columns.Add(model => model.UserName);
+            columns.Add(item => "<a class='btn btn-danger' href='"+@Url.Action("DeleteUser","Account",new {id=item.Id})+"'><i data-feather='trash'></i></a>").Encoded(false).Titled("Controls");
+        }
+        )
+        .Using(GridFilterMode.Header)
+        .Empty("No data found")
+        .Filterable()
+        .Sortable()
+        .Pageable()
+        )
+
+
+</div>
+
+@section Scripts
+{
+    <script>
+           document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+}

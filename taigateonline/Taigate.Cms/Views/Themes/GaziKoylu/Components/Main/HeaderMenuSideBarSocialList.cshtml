@@ -1,0 +1,15 @@
+﻿@model List<Taigate.Data.Data.Entities.Components.GaziKoylu.Footer>
+
+<div class="offcanvas-footer">
+    <div class="item-title">Localized(Sosyal_Medyalarimiz_Text)</div>
+    <ul class="offcanvas-social">
+        @foreach (var item in Model)
+        {
+            if (!string.IsNullOrEmpty(item.FacebookUrl)){<li><a href="@item.FacebookUrl"><i class="fab fa-facebook-f"></i></a></li>}
+            if (!string.IsNullOrEmpty(item.TwitterUrl)){<li><a href="@item.TwitterUrl"><i class="fab fa-twitter"></i></a></li>}
+            if (!string.IsNullOrEmpty(item.InstagramUrl)){<li><a href="@item.InstagramUrl"><i class="fab fa-instagram"></i></a></li>}
+            if (!string.IsNullOrEmpty(item.PinterestUrl)){<li><a href="@item.PinterestUrl"><i class="fab fa-pinterest-p"></i></a></li>}
+            if (!string.IsNullOrEmpty(item.YoutubeUrl)){<li><a href="@item.YoutubeUrl"><i class="fab fa-YoutubeUrl"></i></a></li>}
+        }
+    </ul>
+</div>

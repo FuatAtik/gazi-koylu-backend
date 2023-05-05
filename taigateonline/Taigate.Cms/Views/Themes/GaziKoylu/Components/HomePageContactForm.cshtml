@@ -1,0 +1,76 @@
+﻿@* Todo  placeholder dile baglanacak  *@
+
+<form class="contact-form-box">
+    <div class="col-xl-6 form-group">
+        <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-400">
+            <input type="text" placeholder="Name *" class="form-control" name="first_name" id="Name" data-error="Phone field is required" required>
+            <div class="help-block with-errors"></div>
+        </div>
+    </div>
+    <div class="col-xl-6 form-group">
+        <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-700">
+            <input type="email" placeholder="Email *" class="form-control" name="email" id="Email" data-error="Subject field is required" required>
+            <div class="help-block with-errors"></div>
+            <div class="row gutters-20">
+            </div>
+        </div>
+        <div class="col-12 form-group">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1000">
+                <select class="select2" id="Subject" name="subject">
+                    Component(HomePageContactFormSelectList)
+                </select>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-12 form-group">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1300">
+                <textarea placeholder="" class="textarea form-control" name="message" id="form-message" rows="7" cols="20" data-error="Message field is required" required></textarea>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-12 form-group mb-0">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1700">
+                <button type="submit" id="submitButtonHomePage" class="btn-fill btn-gradient">Send Message</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-response"></div>
+</form>
+
+
+<form class="contact-form-box">
+    <div class="row gutters-20">
+        <div class="col-xl-6 form-group">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-400">
+                <input type="text" placeholder="Name *" class="form-control" id="Name" name="first_name" data-error="Phone field is required" required="">
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-xl-6 form-group">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-700">
+                <input type="email" placeholder="Email *" class="form-control" id="Name" name="email" data-error="Subject field is required" required="">
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-12 form-group">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1000">
+                <select class="select2 select2-hidden-accessible" name="subject" id="Name" tabindex="-1" aria-hidden="true">
+                   Component(HomePageContactFormSelectList)
+                </select>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-12 form-group">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1300">
+                <textarea placeholder="Let us know what you need" class="textarea form-control" name="message" id="form-message" rows="7" cols="20" data-error="Message field is required" required=""></textarea>
+                <div class="help-block with-errors"></div>
+            </div>
+        </div>
+        <div class="col-12 form-group mb-0">
+            <div class="translate-bottom-75 opacity-animation transition-150 transition-delay-1700">
+                <button type="submit" id="submitButtonHomePage" class="btn-fill btn-gradient disabled">Send Message</button>
+            </div>
+        </div>
+    </div>
+    <div class="form-response"></div>
+</form>

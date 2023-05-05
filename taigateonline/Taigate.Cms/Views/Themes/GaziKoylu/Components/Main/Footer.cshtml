@@ -1,0 +1,101 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.Footer
+
+<footer id="footer-wrap-layout1" class="footer-wrap-layout1 bg-color-light">
+    <div class="footer-top-layout1 bg-no-repeat bg-size-cover bg-position-center" data-bg-image="/themes/gazikoylu/assets/image/main/footer-bg.png">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <div class="footer-widgets">
+                        <div class="footer-logo">
+                            <a href="/">
+                                <img src="@Model.Logo" alt="Logo">
+                            </a>
+                        </div>
+                        <p class="about-paragraph">@Model.Description</p>
+                        <ul class="footer-social">
+                            @if (!string.IsNullOrEmpty(Model.FacebookUrl))
+                            {
+                                <li>
+                                    <a href="@Model.FacebookUrl">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.TwitterUrl))
+                            {
+                                <li>
+                                    <a href="@Model.TwitterUrl">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.InstagramUrl))
+                            {
+                                <li>
+                                    <a href="@Model.InstagramUrl">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.PinterestUrl))
+                            {
+                                <li>
+                                    <a href="@Model.PinterestUrl">
+                                        <i class="fab fa-pinterest-p"></i>
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model.YoutubeUrl))
+                            {
+                                <li>
+                                    <a href="@Model.YoutubeUrl">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <div class="footer-widgets">
+                        <h3 class="footer-widget-heading">@Model.MenuTitle</h3>
+                        Component(FooterMenuList)
+                    </div>
+                </div>
+                
+                
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <div class="footer-widgets">
+                        <h3 class="footer-widget-heading">@Model.ServicesTitle</h3>
+                        Component(FooterServiceList)
+                    </div>
+                </div>
+                
+                <div class="col-xl-3 col-lg-3 col-md-6 col-12">
+                    <div class="footer-widgets">
+                        <h3 class="footer-widget-heading">@Model.ContactInfo</h3>
+                        <p>@Model.ContactInfoDescription</p>
+                        <ul class="footer-contact">
+                            <li>
+                                <i class="flaticon-placeholder"></i>@Model.ContactAddress
+                            </li>
+                            <li>
+                                <i class="flaticon-plane"></i>@Model.ContactMail
+                            </li>
+                            <li>
+                                <i class="flaticon-telephone"></i>@Model.ContactPhonenumber
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom-layout1 bg-color-accent">
+        <div class="container">
+            <div class="copy-right-wrap">
+                <p class="copy-right-text">© 2023 Gazi köylü Tüm hakları saklıdır</p>
+            </div>
+        </div>
+    </div>
+</footer>

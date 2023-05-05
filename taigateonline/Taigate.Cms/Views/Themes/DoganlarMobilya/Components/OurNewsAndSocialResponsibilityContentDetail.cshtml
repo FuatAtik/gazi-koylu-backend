@@ -1,0 +1,28 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.OurNewsAndSocialResponsibilityContent
+
+@using System.Globalization
+@{
+CultureInfo culture = new CultureInfo("tr");
+var dateFormat = Model.Date.ToString("yyyy", culture);
+}
+<section>
+  <div class="vlt-gap-120">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8 offset-lg-2">
+        <article class="vlt-single-post vlt-single-post--style-1">
+          <header class="vlt-single-post__header">
+            <h2 class="vlt-post-title">@Model.Title
+            </h2>
+            <div class="vlt-post-meta">
+              <span>@dateFormat</span>
+            </div>
+          </header>
+        </article>
+      </div>
+    </div>
+  </div>
+  <iframe src="@Model.FlipBookUrl"  Title="@Model.Title" style="width: 100%;height: 700px;"></iframe>
+  <div class="vlt-gap-70"></div>
+</section>

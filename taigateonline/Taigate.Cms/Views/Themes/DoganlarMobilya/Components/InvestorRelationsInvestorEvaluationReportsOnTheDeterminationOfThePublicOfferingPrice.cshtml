@@ -1,0 +1,18 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.EvaluationReportsOnTheDeterminationOfThePublicOfferingPrice>
+
+<div class="invest-detail-first">
+    @foreach (var item in Model)
+    {
+        <div class="pdf-showhide @item.EvaluationReportsOnTheDeterminationOfThePublicOfferingPriceDates.Year row align-items-center awards-name wow fadeInRight pdf-block pdf-block-@item.EvaluationReportsOnTheDeterminationOfThePublicOfferingPriceDates.Year" data-wow-delay=".2s">
+            <div class="col-8">
+                <div class="first-text">@item.Title</div>
+                <div class="second-text">@item.Description</div>
+            </div>
+            <div class="col-4 social-media-button">
+                <a class="pdf-block vlt-btn vlt-btn--secondary vlt-btn--md" href="@item.FileUrl" target="_self">
+                    Localized(Yatirimci_Iliskileri_List_Incele_Text)<i class="icon-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    }
+</div>

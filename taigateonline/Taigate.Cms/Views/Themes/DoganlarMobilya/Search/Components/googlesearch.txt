@@ -1,0 +1,46 @@
+css
+
+.pagination{display:flex;align-items:center;justify-content:center;text-align:center;margin:auto;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding-bottom:2rem;padding-top: 6rem;}
+.pagination a{color:#000;float:left;padding:8px 16px;text-decoration:none}
+.pagination a.active{background-color:#3575c1;color:#fff}
+
+
+
+
+
+
+
+js
+
+$(function () {
+  $(".pagination a").click(function(){
+    $(".pagination a").removeClass("active");
+    $(this).addClass("active");
+    $(this).attr('disabled', true);
+    let searchTerm = $(this).data("searchterm");
+    let pageIndex = $(this).data("pageindex");
+    NextPage(searchTerm,pageIndex)
+    $(this).attr('disabled', false);
+  });
+
+});
+
+
+function NextPage(searchTerm,pageIndex){
+  $.post('/ara/doganlarmobilya/', 
+      { searchTerm: searchTerm, pageIndex: pageIndex }, 
+      function (data) {
+    let content = "";
+    $.each(data, function (index, item) {
+      
+      content = content + "<div class=\"result-item\"><a class=\"search-subtitle has-cursor\" href=\" " + item.link + " \"> " + item.title + "</a> <p>" + item.snippet + "</p> </div>";
+      
+
+    });
+    if (data){
+      $(".search-results").html(content);
+    }
+   
+
+  });
+}

@@ -1,0 +1,25 @@
+image: docker:19.03
+
+services:
+  - docker:19.03-dind
+
+stages:
+  - build
+  - staticbuild
+build:
+  variables:
+    DOCKER_HOST: tcp://docker:2375/
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+  tags:
+    - 'docker'
+  before_script:
+    - docker login registry.gitlab.com -u ${CI_REGISTRY_USER} -p ${CI_REGISTRY_PASSWORD}
+  only:
+    - master
+    - Dogyap
+    - DoganlarMobilya
+  stage: build
+  script:
+    - docker build -t ${CI_REGISTRY}/${CI_PROJECT_PATH}/doganlar:${CI_COMMIT_REF_NAME} -f Doganlar.Dockerfile .
+    - docker push ${CI_REGISTRY}/${CI_PROJECT_PATH}/doganlar:${CI_COMMIT_REF_NAME}

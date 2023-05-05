@@ -1,0 +1,57 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.HomePageDoganlarFurnitureBrands>
+
+<section class="has-white-color has-brown-background-color">
+    <div class="vlt-gap-50"></div>
+    <div class="vlt-section-title vlt-section-title--style-1 d-flex justify-content-center">
+        <span class="vlt-section-title__subtitle has-white-color">Localized(Marka_Detay_Markalarimiz_Text)</span>
+    </div>
+    <div class="vlt-gap-50"></div>
+
+    <div class="container-fluid p-0">
+        <div
+            class="vlt-content-slider"
+            data-navigation-anchor=".vlt-work-tooltip-slider"
+            data-gap="200"
+            data-loop="enable"
+            data-speed=""
+            data-autoplay=""
+            data-autoplay-speed=""
+            data-slides-centered=""
+            data-slide-settings='{"slides_to_show":"auto"}'
+            data-free-mode="enable"
+            data-slider-offset="enable"
+            data-mousewheel="">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    @foreach (var item in Model)
+                    {
+                        <div class="swiper-slide" style="max-width: 400px">
+                            <div>
+                                <article class="vlt-work vlt-work--style-8">
+                                    <div class="vlt-work__meta">
+                                        <h5 class="vlt-work__title has-cursor" data-tooltip-image="@item.BrandImage">
+                                            <a href="@item.BrandRedirectUrl">@item.BrandName</a>
+                                        </h5>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="vlt-swiper-progress vlt-work-tooltip-slider mx-auto" data-direction="horizontal">
+            <span class="current"></span><span class="sep">/</span><span class="total"></span>
+            <div class="bar">
+                <span></span>
+            </div>
+            <a href="#">
+                <i class="icon-grid"></i>
+            </a>
+        </div>
+    </div>
+    <div class="vlt-gap-60"></div>
+</section>

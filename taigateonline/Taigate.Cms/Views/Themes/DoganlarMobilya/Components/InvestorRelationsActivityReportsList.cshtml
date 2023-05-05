@@ -1,0 +1,29 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.ActivityReportsList>
+
+<div class="invest-detail-first">
+    @foreach (var item in Model)
+    {
+        <div class="pdf-showhide @item.ActivityReportsDates.Year row align-items-center awards-name wow fadeInRight pdf-block pdf-block-@item.ActivityReportsDates.Year" data-wow-delay=".2s">
+            <div class="col-8">
+                <div class="first-text">@item.Title</div>
+                <div class="second-text">@item.Description</div>
+            </div>
+            <div class="col-4 social-media-button">
+
+
+                @if (!string.IsNullOrEmpty(item.PdfBookUrl))
+                {
+                    <a class="pdf-block vlt-btn vlt-btn--secondary vlt-btn--md" href="@item.PdfBookUrl" target="_self">
+                        Localized(Yatirimci_Iliskileri_List_Incele_Text)<i class="icon-arrow-right"></i>
+                    </a>
+                }
+                else
+                {
+                    <a class="pdf-block vlt-btn vlt-btn--secondary vlt-btn--md" href="@item.FileUrl" target="_self">
+                        Localized(Yatirimci_Iliskileri_List_Incele_Text)<i class="icon-arrow-right"></i>
+                    </a>
+                }
+            </div>
+        </div>
+    }
+</div>

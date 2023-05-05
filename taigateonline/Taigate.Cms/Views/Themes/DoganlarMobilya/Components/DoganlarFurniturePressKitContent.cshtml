@@ -1,0 +1,52 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurniturePressKitContent>
+
+<section>
+    <div class="vlt-gap-80"></div>
+    <div class="container">
+        <div class="media-kit">
+            @foreach (var item in Model)
+            {
+                <div class="grid-item">
+                    <article class="vlt-post vlt-post--style-2">
+                        <div class="vlt-post__media">
+
+                            @if (!string.IsNullOrEmpty(item.ImageAltText))
+                            {
+                                <img src="@item.Image" alt="@item.ImageAltText" loading="lazy"/>
+                            }
+                            else
+                            {
+                                string filePath = item.Image;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@item.Image" alt="@iamgeName" loading="lazy"/>
+                            }
+                            
+                        </div>
+                        <div class="vlt-post__content vlt-post__content-width">
+                            <header class="vlt-post__header">
+                                <h3 class="vlt-post-title">@item.Title</h3>
+                            </header>
+                            <div class="vlt-post-excerpt">
+                                <a href="@item.RedirectUrl" download="@item.RedirectUrl"> Localized(Basin_Kiti_Dosya_Indir_Text)</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            }
+
+        </div>
+        <div class="vlt-gap-100"></div>
+        @* <div class="text-center"> *@
+        @*     <div id="vlt-load-more-blog-05"> *@
+        @*         <a class="vlt-isotope-load-more" href="ajax/blog-05-load-more.html"><i class="icon-arrow-down"></i></a> *@
+        @*     </div> *@
+        @* </div> *@
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

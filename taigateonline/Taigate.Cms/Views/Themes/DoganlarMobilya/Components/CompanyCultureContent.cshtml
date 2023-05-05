@@ -1,0 +1,97 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.CompanyCultureContent
+
+<section>
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-8 offset-lg-2">
+                <article class="vlt-single-post vlt-single-post--style-1">
+                    <header class="vlt-single-post__header">
+                        <h2 class="vlt-post-title">@Model.MainTitle</h2>
+                    </header>
+                    <div class="vlt-single-post__content">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                                    <h5 class="has-black-color">@Model.VizyonTitle</h5>
+                                    <div class="vlt-gap-20"></div>
+                                    <p style="max-width: 90%">@Model.VizyonDescription</p>
+                                </div>
+                                <div class="vlt-gap-60--sm"></div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                                    <h5 class="has-black-color">@Model.MisyonTitle</h5>
+                                    <div class="vlt-gap-20"></div>
+                                    <p style="max-width: 90%">@Model.MisyonDescription</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="vlt-gap-60"></div>
+
+                        <div class="vlt-simple-image alignfull">
+                            <div
+                                class="vlt-simple-image__mask"
+                                data-aos="image-mask-animation"
+                                data-aos-delay="0">
+                                <div class="inside"></div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(Model.Image1AltText))
+                            {
+                                <img src="@Model.Image1" alt="@Model.Image1AltText" loading="lazy"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.Image1;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.Image1" alt="@iamgeName" loading="lazy"/>
+                            }
+                        </div>
+                        <div class="vlt-gap-40"></div>
+                        Raw(Model.Parag1)
+                        <div class="vlt-gap-40"></div>
+                        <div class="vlt-simple-image alignfull">
+                            <div
+                                class="vlt-simple-image__mask"
+                                data-aos="image-mask-animation"
+                                data-aos-delay="0">
+                                <div class="inside"></div>
+                            </div>
+
+                            @if (!string.IsNullOrEmpty(Model.Image2AltText))
+                            {
+                                <img src="@Model.Image2" alt="@Model.Image2AltText" loading="lazy"/>
+                            }
+                            else
+                            {
+                                string filePath = Model.Image2;
+                                string[] fileName = filePath.Split('/');
+                                string iamgeName = fileName[^1];
+                                int fileExtPos = iamgeName.LastIndexOf(".");
+                                if (fileExtPos >= 0)
+                                {
+                                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                                }
+                                <img src="@Model.Image2" alt="@iamgeName" loading="lazy"/>
+                            }
+                        </div>
+                        <div class="vlt-gap-60"></div>
+                        <blockquote>
+                            @Model.BlockquoteText
+                        </blockquote>
+                        <div class="vlt-gap-50"></div>
+                        Raw(Model.Parag2)
+                    </div>
+                    <div class="vlt-gap-70"></div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>

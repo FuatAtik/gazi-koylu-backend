@@ -1,0 +1,31 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureFollowUsSection>
+
+<section class="social-media-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-11 offset-xl-1 col-lg-12">
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <h2 class="contact-page-title">Localized(Bizi_Takip_Edin_Main_Title)</h2>
+                </div>
+                <div class="vlt-gap-60"></div>
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <div class="social-media-wrapper">
+                        @foreach (var item in Model)
+                        {
+                            <div class="item">
+                                <div class="text-area">
+                                    <span>@item.SocialMediaName</span>
+                                    <span>@item.SocialMediaPath</span>
+                                </div>
+                                <a class="vlt-btn vlt-btn--primary vlt-btn--md" href="@item.RedirectUrl" target="_self">
+                                    <i class="socicon-@item.SocialMediaTag"></i>
+                                    <i class="icon-arrow-right"></i>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

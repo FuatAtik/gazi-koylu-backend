@@ -1,0 +1,65 @@
+@model Taigate.Data.Data.Entities.Components.TarihceTimeLineArea
+
+<section class="cd-h-timeline js-cd-h-timeline">
+
+<div class="cd-h-timeline__container container">
+    <div class="cd-h-timeline__dates">
+        <div class="cd-h-timeline__line">
+            <ol>
+                <li>
+                    <a href="#0" data-date="16/01/2014"
+                       class="cd-h-timeline__date cd-h-timeline__date--selected">
+                        @Model.Tarih1
+                    </a>
+                </li>
+                <li>
+                    <a href="#0" data-date="28/02/2014" class="cd-h-timeline__date"> @Model.Tarih2</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="20/04/2014" class="cd-h-timeline__date"> @Model.Tarih3</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="20/05/2014" class="cd-h-timeline__date"> @Model.Tarih4</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="09/07/2014" class="cd-h-timeline__date"> @Model.Tarih5</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="30/08/2014" class="cd-h-timeline__date"> @Model.Tarih6</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="15/09/2014" class="cd-h-timeline__date"> @Model.Tarih7</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="01/11/2014" class="cd-h-timeline__date"> @Model.Tarih8</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="10/12/2014" class="cd-h-timeline__date"> @Model.Tarih9</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="19/01/2015" class="cd-h-timeline__date"> @Model.Tarih10</a>
+                </li>
+                <li>
+                    <a href="#0" data-date="03/03/2015" class="cd-h-timeline__date"> @Model.Tarih11</a>
+                </li>
+            </ol>
+
+            <span class="cd-h-timeline__filling-line" aria-hidden="true"></span>
+        </div> <!-- .cd-h-timeline__line -->
+    </div> <!-- .cd-h-timeline__dates -->
+
+    <ul>
+        <li>
+            <a href="#0"
+               class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--prev cd-h-timeline__navigation--inactive">
+                Prev
+            </a>
+        </li>
+        <li>
+            <a href="#0" class="text-replace cd-h-timeline__navigation cd-h-timeline__navigation--next">Next</a>
+        </li>
+    </ul>
+</div> <!-- .cd-h-timeline__container -->
+    @await Component.InvokeAsync(TarihceTimeLineEvents)
+    <!-- .cd-h-timeline__events -->
+</section>}

@@ -1,0 +1,59 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.ContactUsContent
+
+<style>
+    iframe{
+        border: 0;
+        margin-top: 60px;
+        height: 450px;
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        background-color: rgb(229, 227, 223);
+        border-radius: 10px;
+    }
+</style>
+<section class="contact-wrap-layout3 section-padding-md-equal">
+    <div class="container">
+        <div class="row gutters-50">
+            <div class="col-lg-4 mb-5 has-animation">
+                <div class="single-item translate-left-75 opacity-animation transition-150 transition-delay-100">
+                    <div class="address-box-layout2">
+                        <div class="item-icon">
+                            <i class="flaticon-mail"></i>
+                        </div>
+                        <div class="item-content">
+                            <h3 class="item-title">@Model.Title1</h3>
+                            <ul class="list-item">
+                                <li>@Model.Email</li>
+                                <li>@Model.PhoneNumber</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-item translate-left-75 opacity-animation transition-150 transition-delay-600">
+                    <div class="address-box-layout2">
+                        <div class="item-icon">
+                            <i class="flaticon-placeholder"></i>
+                        </div>
+                        <div class="item-content">
+                            <h3 class="item-title">@Model.Title2</h3>
+                            <ul class="list-item">
+                                <li>@Model.Address</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            Component(ContactUsContentForm)
+        </div>
+        <div class="box-bottom-margin">
+            <div class="google-map">
+                <iframe src="" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <iframe src="@Model.IframeUrl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>

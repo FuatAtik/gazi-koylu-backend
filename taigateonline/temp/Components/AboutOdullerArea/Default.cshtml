@@ -1,0 +1,45 @@
+@model Taigate.Data.Data.Entities.Components.AboutOdullerArea
+
+            <div class="container">
+              <div class="section-item text-left">
+                <div class="row">
+                  <div class="col-md-3 blue-top-line">
+                    <h2 class="mb-1 text-blue fs30 font-montserrat-bold">@Model.Title</h2>
+                    <div class="section-item-title-xs-narrow text-dark-blue font-montserrat-bold">@Model.Description</div>
+                  </div>
+                  <div class="col-md-8 blue-top-line">
+                    <div class="a-progressbar">
+                      <div class="mb20 awards-name">
+                        <div class="text-uppercase mb-2 text-blue">@Model.OdulTitle1</div>
+                        <div class="text-uppercase mb-2">@Model.OdulText1</div>
+                      </div>
+                      <div class="mb20 awards-name">
+                        <div class="text-uppercase mb-2 text-blue">@Model.OdulTitle2</div>
+                        <div class="text-uppercase mb-2">@Model.OdulText2</div>
+                      </div>
+                      <div class="mb20 awards-name">
+                        <div class="text-uppercase mb-2 text-blue">@Model.OdulTitle3</div>
+                        <div class="text-uppercase mb-2">@Model.OdulTitle3</div>
+                      </div>
+                      <div class="mb20 awards-name">
+                        <div class="text-uppercase mb-2 text-blue">@Model.OdulTitle4</div>
+                        <div class="text-uppercase mb-2">@Model.OdulText4</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="apply-cta"> 
+                  <div class="apply-cta-grid">
+                    <div class="cta-container">
+                      <div class="font-montserrat fs20">2019 Faaliyet</div>
+                      <div class="font-montserrat-bold fs28">Raporu</div>
+                    </div>
+                    <div class="cta-container">
+                      <div class="font-ubuntu-medium fs20">2019 yılında konsolide ciromuz </div>
+                      <div class="font-ubuntu-medium fs20">%29 artışla 16,9 milyar TL’ye ulaştı.</div>
+                      </div>
+                    <div class="cta-container"><a href="@Model.RedirectionUrl" class="btn font-ubuntu-bold">@Model.RedirectionText <i class="icon ion-ios-arrow-right"></i></a> </div>
+                  </div>
+                </div>
+              </div>
+            </div>

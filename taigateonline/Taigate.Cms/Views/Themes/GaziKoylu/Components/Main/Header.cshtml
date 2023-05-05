@@ -1,0 +1,70 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.Header
+<header class="sticky-on">
+    <div id="sticky-placeholder"></div>
+    <div id="navbar-wrap" class="navbar-wrap">
+        <div class="navbar-layout1">
+            <div class="container">
+                <div class="row no-gutters d-flex align-items-center position-relative">
+                    <div class="col-lg-2 d-flex justify-content-start">
+                        <div class="temp-logo text-center">
+                            <a href="/" class="default-logo">
+                                <img src="@Model.WhiteLogo" alt="logo" class="img-fluid">
+                            </a>
+                            <a href="/" class="sticky-logo">
+                                <img src="@Model.BlackLogo" alt="logo" class="img-fluid">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 d-flex justify-content-end possition-static">
+                        <nav id="dropdown" class="template-main-menu">
+                            <ul>
+                                <li class="position-static d-none d-lg-block">
+                                    <a href="@Model.MenuItem1Url">@Model.MenuItem1Text</a>
+                                </li>
+                                <li class="d-block d-lg-none">
+                                    <a href="@Model.MenuItem1Url">@Model.MenuItem1Text</a>
+                                </li>
+                                <li>
+                                    <a href="@Model.MenuItem2Url">
+                                        <span>@Model.MenuItem2Text</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">@Model.MenuItem3Text</a>
+                                    Component(HeaderMenuServicesList)
+                                </li>
+                                <li>
+                                    <a href="@Model.MenuItem4Url">
+                                        <span>@Model.MenuItem4Text</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div class="col-lg-3 d-flex justify-content-end">
+                        <ul class="header-action-items">
+                            <li class="single-item">
+                                <a href="#template-search" title="Search" class="header-search">
+                                    <i class="flaticon-search"></i>
+                                </a>
+                            </li>
+                            <li class="single-item mr-2">
+                                <a href="@Model.MenuItem5Url" class="item-btn btn-ghost btn-light">@Model.MenuItem5Text</a>
+                            </li>
+                            <li class="single-item">
+                                <button type="button" class="offcanvas-menu-btn menu-status-open">
+                                    <span class="menu-btn-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

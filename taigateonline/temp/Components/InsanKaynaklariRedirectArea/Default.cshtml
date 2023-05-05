@@ -1,0 +1,30 @@
+@model List<Taigate.Data.Data.Entities.Components.InsanKaynaklariRedirectArea>
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col-md-3 blue-top-line main-title">
+                <h2 class="mb-1 font-montserrat-bold fs42  text-blue">@item.Title</h2>
+                <div class="section-item-title-xs-narrow text-dark-blue font-montserrat-bold fs20">@item.Description</div>
+            </div>
+            <div class="col-md-8 blue-top-line">
+                <div class="">
+                    <div class="row align-items-center awards-name wow fadeInRight" data-wow-delay=".2s">
+                        <div class="col-8">
+                            <div class="text-blue fs20 font-ubuntu-medium">@item.Parag1</div>
+                            <div class="text-black font-ubuntu-medium">@item.Parag2</div>
+                        </div>
+                        <div class="col-4 social-media-button">
+                            <a class="btn btn-blue btn-sm" href="@item.RedirectUrl">
+                                @item.RedirectText
+                                <i class="icon ion-ios-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

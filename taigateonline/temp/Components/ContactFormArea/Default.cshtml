@@ -1,0 +1,31 @@
+@model Taigate.Data.Data.Entities.Components.ContactFormArea
+
+<div class="section contact-form">
+    <div class="section-item">
+        <div class="container wow fadeInUp" data-wow-delay=".2s">
+            <h3 class="fs36 mb120 text-white">@Model.FormTitle</h3>
+            <form action="#" class="text-left">
+                <div class="row">
+                    <div class="col-sm-4 mb30 contact-form-input">
+                        <label class="label-custom">@Model.FullName</label>
+                        <input type="text" class="form-control form-control-custom" placeholder="Adınız soyadınız" />
+                    </div>
+                    <div class="col-sm-4 mb30 contact-form-input">
+                        <label class="label-custom">@Model.Mail</label>
+                        <input type="text" class="form-control form-control-custom" placeholder="E-Posta adresiniz" />
+                    </div>
+                    <div class="col-sm-4 mb30 contact-form-input">
+                        <label class="label-custom">@Model.Subject</label>
+                        <input type="text" class="form-control form-control-custom" placeholder="Mesaj başlığınız yazınız" />
+                    </div>
+                    <div class="col-sm-12 mb30 mt20 contact-form-input">
+                        <label class="label-custom">@Model.Message</label>
+                        <textarea rows="9" cols="30" class="form-control form-control-custom" placeholder="Görüş öneri ve sorularınızı bizimle paylaşın"></textarea>
+                    </div>
+                </div>
+                <div class="mt40 text-center">
+                    <button class="btn btn-link fs18">@Model.MsgSendBtnName</button></div>
+            </form>
+        </div>
+    </div>
+</div>

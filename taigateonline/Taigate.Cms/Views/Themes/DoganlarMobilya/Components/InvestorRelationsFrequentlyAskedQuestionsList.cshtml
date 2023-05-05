@@ -1,0 +1,15 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.FrequentlyAskedQuestionsList>
+
+<div class="price-accordion" id="accordion">
+    @foreach (var item in Model)
+    {
+        <h3 class="accordion-title">@item.QuestionTitle</h3>
+        <div>
+            <div class="accordion-item__body">
+                <p>
+                    Raw(item.QuestionDescription)
+                </p>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,98 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.DoganlarFurnitureNewsFromUsContent>
+
+@using System.Globalization
+@{
+    int counter;
+}
+<section>
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="text-center">
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                <div class="vlt-section-title vlt-section-title--style-3">
+                    <h2 class="vlt-section-title__title">Localized(Bizden_Haberler_Main_Tilte)</h2>
+                </div>
+                <div class="vlt-gap-30"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <div
+                        class="vlt-isotope-grid"
+                        data-columns="1"
+                        data-layout="masonry"
+                        data-x-gap="0|0"
+                        data-y-gap="0|0"
+                        data-controls="#vlt-filter-blog-03"
+                        data-load-more-selector="#vlt-load-more-blog-03">
+                        <div class="grid-sizer"></div>
+
+                        @if (Model.Count > 4)
+                        {
+                            for (counter = 0; counter < 4; counter++)
+                            {
+                                CultureInfo culture = new CultureInfo("tr");
+                                var dateFormatDay = Model[counter].NewsDate.Day.ToString("#00");
+                                var dateFormatMonth = Model[counter].NewsDate.ToString("MMMM", culture);
+                                <div class="grid-item">
+                                    <article class="vlt-post vlt-post--style-5">
+                                        <div class="vlt-post__content">
+                                            <div class="vlt-post-date">
+                                                <span>@dateFormatDay</span><span>@dateFormatMonth</span>
+                                            </div>
+                                            <h3 class="vlt-post-title has-cursor">
+                                                <a href="@Model[counter].NewsRedirectUrl">@Model[counter].NewsTitle</a>
+                                            </h3>
+                                            <div class="vlt-post-category">
+                                                <a href="@Model[counter].NewsRedirectUrl">Localized(Bizden_Haberler_Incele_Text)</a>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            foreach (var item in Model)
+                            {
+                                CultureInfo culture = new CultureInfo("tr");
+                                var dateFormatDay = item.NewsDate.Day.ToString("#00");
+                                var dateFormatMonth = item.NewsDate.ToString("MMMM",culture);
+                                <div class="grid-item">
+                                    <article class="vlt-post vlt-post--style-5">
+                                        <div class="vlt-post__content">
+                                            <div class="vlt-post-date">
+                                                <span>@dateFormatDay</span><span>@dateFormatMonth</span>
+                                            </div>
+                                            <h3 class="vlt-post-title has-cursor">
+                                                <a href="@item.NewsRedirectUrl">@item.NewsTitle</a>
+                                            </h3>
+                                            <div class="vlt-post-category"><a href="@item.NewsRedirectUrl">Localized(Bizden_Haberler_Incele_Text)</a></div>
+                                        </div>
+                                    </article>
+                                </div>   
+                            }
+                        }
+
+
+
+                    </div>
+                </div>
+                <div class="vlt-gap-80"></div>
+                <div class="text-center has-black-color">
+                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                        <a
+                            class="vlt-simple-link vlt-simple-link--md"
+                            href="/Localized(Hepsini_Incele_Url)"
+                            target="_self">
+                            Localized(Hepsini_Incele_Text)
+                            <i class="icon-arrow-top-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

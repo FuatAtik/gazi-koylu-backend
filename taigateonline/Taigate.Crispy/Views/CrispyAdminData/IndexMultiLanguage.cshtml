@@ -1,0 +1,135 @@
+﻿@using NonFactors.Mvc.Grid
+@using System.Linq.Expressions
+@using Microsoft.EntityFrameworkCore
+@using Taigate.Core
+@using Taigate.Core.Attributes
+@using System.Linq.Dynamic.Core
+@model Taigate.Crispy.ViewModels.DataListViewModel
+
+@{
+    ViewData["Title"] = Model.DbSetProperty.Name;
+    Layout = "_CrispyAdminLayout";
+    List<dynamic> languages= (List<dynamic>) ViewBag.Languages;
+}
+<div class="card">
+    <div class="card-header b-l-primary border-3">
+        <h5>@Model.DbSetProperty.Name</h5>
+    </div>
+    <div class="card-body">
+        <ul class="nav nav-tabs border-tab nav-primary" id="info-tab" role="tablist">
+            @foreach (var language in languages)
+            {
+                if (languages.First() == language)
+                {
+                    <li class="nav-item"><a class="nav-link active" id="lang-@language.Name-tab" data-bs-toggle="tab" href="#lang-@language.Name" role="tab" aria-controls="lang-@language.Name" aria-selected="true"><i class="flag-icon flag-icon-@language.FlagImageFileName"></i>@language.Name</a></li>
+                }
+                else
+                {
+                    <li class="nav-item"><a class="nav-link" id="lang-@language.Name-tab" data-bs-toggle="tab" href="#lang-@language.Name" role="tab" aria-controls="lang-@language.Name"><i class="flag-icon flag-icon-@language.FlagImageFileName"></i>@language.Name</a></li>
+                }
+            }
+        </ul>
+        <div class="tab-content" id="info-tabContent">
+            @foreach (var language in languages)
+            {
+                List<object> list = new List<object>();
+
+                int langId = Convert.ToInt32(language.Id);
+
+                list = Model.Data.Where("LanguageId = @0",langId).Select(e => (object) e).ToDynamicList();
+                <div class="tab-pane fade @( languages.First()==language ? "show active" : "" )" id="lang-@language.Name" role="tabpanel" aria-labelledby="lang-@language.Name-tab">
+                    <div class="card-header-right-icon">
+                         <a class="btn-download btn btn-gradient f-w-500" href="/CrispyAdmin/data/create/@Model.DbSetProperty.Name/@language.Id" data-original-title="" title="">Create new</a>
+                         <a class="btn-download btn btn-gradient f-w-500" href="/CrispyAdmin/data/export/@Model.DbSetProperty.Name/@language.Id" data-original-title="" title="">Export Excel</a>
+                        <a class="btn-download btn btn-gradient f-w-500" href="/CrispyAdmin/data/import/@Model.DbSetProperty.Name/@language.Id" data-original-title="" title="">Import Excel</a>                    
+                    </div>
+                 
+                    @(Html
+                        .Grid(list)
+                        .Build((columns) =>
+                        {
+                            // only supports single PKs, not composite ones
+                            var pkProperties = Model.DbContext.Model.FindEntityType(Model.EntityType).FindPrimaryKey().Properties;
+                            var fkProperties = Model.DbContext.Model.FindEntityType(Model.EntityType).GetReferencingForeignKeys();
+                            if (pkProperties.Count == 1)
+                            {
+                                var pKProperty = pkProperties.Single()?.PropertyInfo;
+                     
+                                if (pKProperty != null)
+                                {
+                                    columns.Add(item => "<a class='btn btn-primary' href='" + @Url.Action("EditEntity", new {dbSetName = Model.DbSetProperty.Name, Id = pKProperty.GetValue(item)}) + "'><i data-feather='edit'></i></a>").Encoded(false).Titled("Controls");
+                                }
+                            }
+                            foreach (var entityProperty in Model.EntityType.GetProperties())
+                            {
+                                ParameterExpression entity = Expression.Parameter(typeof(object), "ent");
+                                var changedType = Expression.Convert(entity, Model.EntityType);
+                                var property = Expression.Property(changedType, entityProperty.Name);
+                                EditorType type = AttributeHelper.GetEditorType(entityProperty);
+                                DropdownModel dropdownModel = AttributeHelper.GetDropdown(entityProperty);
+                                if (dropdownModel!=null)
+                                {
+                                }
+                                switch (type)
+                                {
+                                    case EditorType.SingleText:
+                                        columns.Add(Expression.Lambda<Func<object, string>>(property, entity)).Titled(entityProperty.Name);
+                                        break;
+                                    case EditorType.SingleTextOnlyNumber:
+                                        columns.Add(Expression.Lambda<Func<object, string>>(property, entity)).Titled(entityProperty.Name);
+                                        break;
+                                    case EditorType.RichTinyMCE:
+                                        columns.Add(Expression.Lambda<Func<object, string>>(property, entity)).Titled(entityProperty.Name);
+                                        break;
+                                    case EditorType.Datetime:
+                                        columns.Add(Expression.Lambda<Func<object, DateTime>>(property, entity)).Titled(entityProperty.Name).Formatted("{0: yyyy/MM/dd}");
+                                        break;
+                                    case EditorType.Number:
+                                        columns.Add(Expression.Lambda<Func<object, Int32>>(property, entity)).Titled(entityProperty.Name);
+                                        break;
+                                    case EditorType.Dropdown:
+                                        var item = Expression.Parameter(typeof(object), "enteee");
+                                        var changedTypeDropdown = Expression.Convert(item, Model.EntityType);
+                                        var dataExpr = Expression.Property(changedTypeDropdown, dropdownModel.Table);
+                                        var prop = Expression.Property(dataExpr, dropdownModel.ValueField);
+                                        var lambdaDropdown = Expression.Lambda<Func<object, string>>(prop, item);
+                                        columns.Add(lambdaDropdown).Titled(entityProperty.Name);
+                                        break;
+                                    default:
+                                        if (entityProperty.PropertyType == typeof(Int32))
+                                        {
+                                            var returnTarget = Expression.Label(typeof(Int32));
+                                            var lambda = Expression.Lambda<Func<object, Int32>>(property, entity);
+                                            columns.Add(lambda).Titled(entityProperty.Name);
+                                        }
+                                        break;
+                                }
+                            }
+                            if (pkProperties.Count == 1)
+                            {
+                                var pKProperty = pkProperties.Single()?.PropertyInfo;
+                                if (pKProperty != null)
+                                {
+                                    columns.Add(item => "<a class='btn btn-danger' href='" + @Url.Action("DeleteEntity", new {dbSetName = Model.DbSetProperty.Name, Id = pKProperty.GetValue(item)}) + "'><i data-feather='trash'></i></a>").Encoded(false).Titled("Controls");
+                                }
+                            }
+                        }
+                        )
+                        .Using(GridFilterMode.Header)
+                        .Empty("No data found")
+                        .Filterable()
+                        .Sortable()
+                        .Pageable()
+                        )
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+           document.querySelectorAll(".mvc-grid").forEach(element => new MvcGrid(element));
+    </script>
+}

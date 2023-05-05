@@ -1,0 +1,48 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.ServiceContent
+
+
+@{
+    List<string> colorList = new List<string>() { "dodger-blue", "sunset-orange", "royal-blue", "california" };
+    var number = 1;
+    var arrayIndex = 0;
+}
+
+<div class="row box-bottom-margin has-animation active-animation">
+    @foreach (var item in Model.AttributeMapping)
+    {
+        <div class="col-xl-3 col-sm-6 col-12">
+            <div class="service-details-box">
+                <div class="translate-zoomout-50 opacity-animation transition-150 transition-delay-100">
+                    <div class="feature-item @colorList[arrayIndex]">
+                        <div class="feature-number">@number</div>
+                        <h3 class="feature-title">@item.ServiceDetailAttributeList.Title</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        number++;
+        arrayIndex++;
+    }
+</div>
+
+
+@* @{ *@
+@*     var dataCount = Model.Count; *@
+@*     List<string> colorList = new List<string>() { "dodger-blue", "sunset-orange","royal-blue","california"}; *@
+@* } *@
+@* *@
+@* <div class="row box-bottom-margin has-animation active-animation"> *@
+@*     @for (int i =0; i<Model.Count; i++) *@
+@*     { *@
+@*         <div class="col-xl-3 col-sm-6 col-12"> *@
+@*             <div class="service-details-box"> *@
+@*                 <div class="translate-zoomout-50 opacity-animation transition-150 transition-delay-100"> *@
+@*                     <div class="feature-item @colorList[i]"> *@
+@*                         <div class="feature-number">@i+1</div> *@
+@*                         <h3 class="feature-title">@Model[i].Title</h3> *@
+@*                     </div> *@
+@*                 </div> *@
+@*             </div> *@
+@*         </div> *@
+@*     } *@
+@* </div> *@

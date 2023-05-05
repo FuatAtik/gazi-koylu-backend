@@ -1,0 +1,75 @@
+@model List<Taigate.Data.Data.Entities.Components.HomeFourPlace>
+
+<div class="section pp-scrollable slide slide3 slide-dark">
+    <div class="slide-bg">
+        <div class="inside" id="bgimage"></div>
+    </div>
+    <div class="horizantal-section text-center">
+        <div class="center-bar-column-list">
+            @foreach (var item in Model)
+            {
+                <div class="center-bar-column">
+                    <div class="slide-bg">
+                        <div class="inside" style="display:none;background-image: url(@item.ImageBgUrl)"></div>
+                    </div>
+                    <div class="center-bar-column-wrapper valign-center-wrapper">
+                        <div class="center-bar-column-holder flex-item">
+                            <a href="@item.RedirectUrl"class="column-title">@item.Title</a>
+                            <div class="column-body">@item.Description</div>
+                            <div class="column-cta">@item.RedirectText</div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@* <div class="center-bar-column"> *@
+@*     <div class="slide-bg"> *@
+@*         <div class="inside" style="display:none;background-image: url('/themes/doganlar/img/logo_mobilya.png')"></div> *@
+@*     </div> *@
+@*     <div class="center-bar-column-wrapper valign-center-wrapper"> *@
+@*         <div class="center-bar-column-holder flex-item"> *@
+@*             <a class="column-title">asdads</a> *@
+@*             <div class="column-body">Yaşam alanlarına şık ve keyifli tasarımlar </div> *@
+@*             <div class="column-cta">Detaylı İncele</div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+@* <div class="center-bar-column"> *@
+@*     <div class="slide-bg"> *@
+@*         <div class="inside"></div> *@
+@*     </div> *@
+@*     <div class="center-bar-column-wrapper valign-center-wrapper"> *@
+@*         <div class="center-bar-column-holder flex-item"> *@
+@*             <a class="column-title">ENERJİ</a> *@
+@*             <div class="column-body">Enerjimizi doğa sevgisinden alıyoruz</div> *@
+@*             <div class="column-cta">Detaylı İncele</div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+@* <div class="center-bar-column"> *@
+@*     <div class="slide-bg"> *@
+@*         <div class="inside"></div> *@
+@*     </div> *@
+@*     <div class="center-bar-column-wrapper valign-center-wrapper"> *@
+@*         <div class="center-bar-column-holder flex-item"> *@
+@*             <a class="column-title">İNŞAAT</a> *@
+@*             <div class="column-body">Yaşam kalitesini artıran çözümler… </div> *@
+@*             <div class="column-cta">Detaylı İncele</div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@
+@* <div class="center-bar-column"> *@
+@*     <div class="slide-bg"> *@
+@*         <div class="inside"></div> *@
+@*     </div> *@
+@*     <div class="center-bar-column-wrapper valign-center-wrapper"> *@
+@*         <div class="center-bar-column-holder flex-item"> *@
+@*             <a class="column-title">PARAKENDE</a> *@
+@*             <div class="column-body">Mağazacılıkta yeni yaklaşımlar… </div> *@
+@*             <div class="column-cta">Detaylı İncele</div> *@
+@*         </div> *@
+@*     </div> *@
+@* </div> *@

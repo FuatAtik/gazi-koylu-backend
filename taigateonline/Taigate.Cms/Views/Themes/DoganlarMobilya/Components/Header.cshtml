@@ -1,0 +1,531 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.HeaderLogo
+
+<div class="d-none d-lg-block">
+  <header class="vlt-header vlt-header--fullscreen">
+    <div class="vlt-navbar vlt-navbar--main vlt-navbar--sticky vlt-navbar--white-text-on-top">
+      <div class="container-fluid">
+        <div class="vlt-navbar-inner">
+          <div class="vlt-navbar-inner--left">
+            <div class="d-flex align-items-center justify-content-center h-100">
+              <!--Logo-->
+              <a class="vlt-navbar-logo" href="Localized(Navbar-Logo-Url)">
+                <img
+                     class="black"
+                     src="@Model.LogoImage"
+                     alt="doganlar mobilya logo"
+                     loading="lazy"/>
+                <img
+                     class="white"
+                     src="@Model.LogoImage"
+                     alt="doganlar mobilya logo"
+                     loading="lazy"/>
+              </a>
+            </div>
+          </div>
+          <div class="vlt-navbar-inner--right">
+            <div class="d-flex align-items-center justify-content-center h-100">
+              <!--Buttons-->
+              <div class="vlt-navbar-buttons d-flex align-items-center">
+                <a class="vlt-menu-burger js-fullscreen-menu-toggle" href="#">
+                  <span class="line-one"></span>
+                  <span class="line-two"></span>
+                  <div class="menu-title">Localized(Menu_Text)
+                  </div>
+                </a>
+              </div>
+              Localized(Menu_Language_Select)
+              <div class="vlt-navbar-buttons  align-items-center">
+                <a class="vlt-search-icon js-search-form-open" href="#">
+                  <i class="icon-search">
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!--Search popup-->
+  <div class="vlt-search-popup vlt-search-popup--dark">
+    <div class="vlt-search-popup__header">
+      <div class="container">
+        <a class="vlt-search-icon-close js-search-form-close" href="#">
+          <i class="icon-cross">
+          </i>
+        </a>
+      </div>
+    </div>
+    <div class="vlt-search-popup__content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <form id="searchFrm" name="searchForm" method="post" action="/ara/doganlarmobilya" class="vlt-search-form">
+              <input name="searchTerm" type="text" placeholder="Localized(Merak_Ettiklerinizi_Arayin)"/>
+              <button type="submit">
+                <i class="icon-search">
+                </i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <nav class="vlt-nav vlt-nav--fullscreen" data-submenu-effect="style-1">
+    <div class="vlt-nav--fullscreen__mask">
+      <svg xmlns="http://www.w3.org/2000/svg" width="895" height="267">
+        <path
+              fill="none"
+              fill-rule="nonzero"
+              stroke="currentColor"
+              stroke-width="2"
+              d="M376.98 63.08c22.08 0 39.72 4.8 52.92 14.4 13.2 9.6 22.68 22.44 28.44 38.52 5.76 16.08 8.64 33.6 8.64 52.56h0v9H334.86c0 15.36 4.08 27 12.24 34.92 7.92 8.16 19.08 12.24 33.48 12.24 7.44 0 14.28-2.04 20.52-6.12s10.2-9 11.88-14.76h51.84c-4.08 13.44-10.08 24.48-18 33.12-8.16 9.12-17.88 16.08-29.16 20.88-11.76 4.8-24.12 7.2-37.08 7.2-63.84 0-95.76-34.92-95.76-104.76 0-16.56 3.12-32.4 9.36-47.52 6.24-15.12 16.32-27.12 30.24-36 14.16-9.12 31.68-13.68 52.56-13.68zM81.06 1.16l46.44 204.12L174.66 1.16h78.12V260h-50.76V43.28l-.72.72-47.88 216h-53.28L52.98 43.28l-.72.72v216H1.5V1.16h79.56zm295.2 103.32c-22.56 0-35.64 13.68-39.24 41.04h78.12c-.96-12.24-5.04-22.32-12.24-30.24-7.2-7.2-16.08-10.8-26.64-10.8zM550.86 260V150.2c0-12 3.12-22.44 9.36-31.32 6.24-8.64 16.2-12.96 29.88-12.96 14.4 0 23.52 3.36 27.36 10.08 3.84 6.72 5.76 16.08 5.76 28.08V260h50.76V127.16c0-13.44-2.64-24.96-7.92-34.56-5.28-9.36-12.96-16.68-23.04-21.96-10.32-5.04-22.32-7.56-36-7.56-25.92 0-45.36 11.04-58.32 33.12V68.12h-48.6V260h50.76zm235.44 5.04c12.96 0 24.24-2.64 33.84-7.92 9.6-5.28 18-13.2 25.2-23.76V260h47.88V68.12h-50.04V179c0 10.56-1.92 18.96-5.76 25.2-3.84 6.72-8.88 11.4-15.12 14.04-6.48 2.88-12.6 4.32-18.36 4.32-21.6 0-32.4-11.88-32.4-35.64V68.12h-50.76v126.36c0 23.04 6 40.56 18 52.56s27.84 18 47.52 18z"/>
+      </svg>
+    </div>
+    <div class="vlt-nav-table">
+      <div class="vlt-nav-row">
+        <div class="vlt-nav--fullscreen__header">
+          <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+              <a class="vlt-navbar-logo" href="Localized(Navbar-Logo-Url)">
+                @if (!string.IsNullOrEmpty(Model.LogoImageAltText))
+                {
+                <img src="@Model.LogoImage" alt="@Model.LogoImageAltText" loading="lazy"/>
+                }
+                else
+                {
+                string filePath = Model.LogoImage;
+                string[] fileName = filePath.Split('/');
+                string iamgeName = fileName[^1];
+                int fileExtPos = iamgeName.LastIndexOf(".");
+                if (fileExtPos >= 0)
+                {
+                iamgeName = iamgeName.Substring(0, fileExtPos);
+                }
+                <img src="@Model.LogoImage" alt="@iamgeName" loading="lazy"/>
+                }
+              </a>
+              <a class="vlt-menu-burger js-fullscreen-menu-toggle" href="#">
+                <span class="line-one"></span>
+                <span class="line-two">
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vlt-nav-row vlt-nav-row--full vlt-nav-row--center">
+        <div class="container">
+          <div class="vlt-nav--fullscreen__navigation">
+            <ul class="sf-menu" data-back-text="Localized(MenuDataBackText)">
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText1)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl1)">
+                      <span>Localized(MenuItem1SubItemText1)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl5)">
+                      <span>Localized(MenuItem1SubItemText5)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl2)">
+                      <span>Localized(MenuItem1SubItemText2)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl3)">
+                      <span>Localized(MenuItem1SubItemText3)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl4)">
+                      <span>Localized(MenuItem1SubItemText4)</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl2)">
+                  <span>Localized(MenuItemText2)</span>
+                </a>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl3)">
+                  <span>Localized(MenuItemText3)</span>
+                </a>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText8)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem8SubItemUrl1)">
+                      <span>Localized(MenuItem8SubItemText1)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem8SubItemUrl4)">
+                      <span>Localized(MenuItem8SubItemText4)</span>
+                    </a>
+                  </li>
+                   <li>
+                     <a href="Localized(MenuItem8SubItemUrl5)">
+                       <span>Localized(MenuItem8SubItemText5)</span>
+                       </a>
+                     </li>
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText4)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem4SubItemUrl2)">
+                      <span>Localized(MenuItem4SubItemText2)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem4SubItemUrl3)">
+                      <span>Localized(MenuItem4SubItemText3)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItemUrl4)">
+                      <span>Localized(MenuItem4SubItemText1)</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText5)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem5SubItemUrl1)">
+                      <span>Localized(MenuItem5SubItemText1)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem5SubItemUrl2)">
+                      <span>Localized(MenuItem5SubItemText2)</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl6)">
+                  <span>Localized(MenuItemText6)</span>
+                </a>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl7)">
+                  <span>Localized(MenuItemText7)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="vlt-nav-row">
+        <div class="vlt-nav--fullscreen__footer">
+          <div class="container">
+            <div class="d-flex justify-content-between align-items-end">
+              <!--Widget-->
+              <div class="vlt-widget vlt-widget--socials">
+                <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="https://www.linkedin.com/company/doganlarmobilyagrubu/">
+                  <i class="socicon-linkedin">
+                  </i>
+                </a>
+                <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="https://twitter.com/doganlarholding">
+                  <i class="socicon-twitter">
+                  </i>
+                </a>
+                <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="https://www.youtube.com/channel/UCdSl2jT9leZ6lS4rt9aicvw">
+                  <i class="socicon-youtube">
+                  </i>
+                </a>
+                <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="https://www.instagram.com/doganlarholding/">
+                  <i class="socicon-instagram">
+                  </i>
+                </a>
+                <a style="display: none;" class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="https://www.instagram.com/doganlarholding/">
+                  <i class="socicon-instagram">
+                  </i>
+                </a>
+              </div>
+              <!--Widget-->
+              <div class="vlt-widget vlt-widget--html">
+                <div class="text-right">
+                  <a
+                     class="vlt-simple-link vlt-simple-link--sm"
+                     href="mailto:Localized(Menu_Mail_Address)"
+                     target="_self">
+                    Localized(Menu_Mail_Address)
+                  </a>
+                  <br/>
+                  <a
+                     class="vlt-simple-link vlt-simple-link--sm"
+                     href="tel:Localized(Menu_PhonenumberUrl)"
+                     target="_self">
+                    Localized(Menu_Phonenumber)
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="d-lg-none d-sm-block">
+  <header class="vlt-header vlt-header--fullscreen">
+    <div class="vlt-navbar vlt-navbar--main vlt-navbar--sticky vlt-navbar--white-text-on-top">
+      <div class="container">
+        <div class="vlt-navbar-inner">
+          <div class="vlt-navbar-inner--left">
+            <div class="d-flex align-items-center justify-content-center h-100">
+              <!--Logo-->
+              <a class="vlt-navbar-logo" href="Localized(Navbar-Logo-Url)">
+                @if (!string.IsNullOrEmpty(Model.LogoImageAltText))
+                {
+                <img class="black" style="height: 34px" src="@Model.LogoImage" alt="@Model.LogoImageAltText" loading="lazy"/>
+                }
+                else
+                {
+                string filePath = Model.LogoImage;
+                string[] fileName = filePath.Split('/');
+                string iamgeName = fileName[^1];
+                int fileExtPos = iamgeName.LastIndexOf(".");
+                if (fileExtPos >= 0)
+                {
+                iamgeName = iamgeName.Substring(0, fileExtPos);
+                }
+                <img class="black" style="height: 34px" src="@Model.LogoImage" alt="@iamgeName" loading="lazy"/>
+                }
+                @if (!string.IsNullOrEmpty(Model.LogoImageAltText))
+                {
+                <img class="white" style="height: 34px" src="@Model.LogoImage" alt="@Model.LogoImageAltText" loading="lazy"/>
+                }
+                else
+                {
+                string filePath = Model.LogoImage;
+                string[] fileName = filePath.Split('/');
+                string iamgeName = fileName[^1];
+                int fileExtPos = iamgeName.LastIndexOf(".");
+                if (fileExtPos >= 0)
+                {
+                iamgeName = iamgeName.Substring(0, fileExtPos);
+                }
+                <img class="white" style="height: 34px" src="@Model.LogoImage" alt="@iamgeName" loading="lazy"/>
+                }
+              </a>
+            </div>
+          </div>
+          <div class="vlt-navbar-inner--right">
+            <div class="d-flex align-items-center justify-content-center h-100">
+              <!--Buttons-->
+              <div class="vlt-navbar-buttons align-items-center">
+                <a class="vlt-search-icon js-search-form-open" href="#">
+                  <i class="icon-search">
+                  </i
+                    >
+                </a>
+              </div>
+              Localized(Mobil_Menu_Language_Select)
+              <div class="vlt-navbar-buttons d-flex align-items-center">
+                <a class="vlt-menu-burger js-fullscreen-menu-toggle" href="#">
+                  <span class="line-one"></span>
+                  <span class="line-two">
+                  </span
+                    >
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="vlt-nav vlt-nav--fullscreen" data-submenu-effect="style-1">
+    <div class="vlt-nav--fullscreen__mask">
+      <svg xmlns="http://www.w3.org/2000/svg" width="895" height="267">
+        <path
+              fill="none"
+              fill-rule="nonzero"
+              stroke="currentColor"
+              stroke-width="2"
+              d="M376.98 63.08c22.08 0 39.72 4.8 52.92 14.4 13.2 9.6 22.68 22.44 28.44 38.52 5.76 16.08 8.64 33.6 8.64 52.56h0v9H334.86c0 15.36 4.08 27 12.24 34.92 7.92 8.16 19.08 12.24 33.48 12.24 7.44 0 14.28-2.04 20.52-6.12s10.2-9 11.88-14.76h51.84c-4.08 13.44-10.08 24.48-18 33.12-8.16 9.12-17.88 16.08-29.16 20.88-11.76 4.8-24.12 7.2-37.08 7.2-63.84 0-95.76-34.92-95.76-104.76 0-16.56 3.12-32.4 9.36-47.52 6.24-15.12 16.32-27.12 30.24-36 14.16-9.12 31.68-13.68 52.56-13.68zM81.06 1.16l46.44 204.12L174.66 1.16h78.12V260h-50.76V43.28l-.72.72-47.88 216h-53.28L52.98 43.28l-.72.72v216H1.5V1.16h79.56zm295.2 103.32c-22.56 0-35.64 13.68-39.24 41.04h78.12c-.96-12.24-5.04-22.32-12.24-30.24-7.2-7.2-16.08-10.8-26.64-10.8zM550.86 260V150.2c0-12 3.12-22.44 9.36-31.32 6.24-8.64 16.2-12.96 29.88-12.96 14.4 0 23.52 3.36 27.36 10.08 3.84 6.72 5.76 16.08 5.76 28.08V260h50.76V127.16c0-13.44-2.64-24.96-7.92-34.56-5.28-9.36-12.96-16.68-23.04-21.96-10.32-5.04-22.32-7.56-36-7.56-25.92 0-45.36 11.04-58.32 33.12V68.12h-48.6V260h50.76zm235.44 5.04c12.96 0 24.24-2.64 33.84-7.92 9.6-5.28 18-13.2 25.2-23.76V260h47.88V68.12h-50.04V179c0 10.56-1.92 18.96-5.76 25.2-3.84 6.72-8.88 11.4-15.12 14.04-6.48 2.88-12.6 4.32-18.36 4.32-21.6 0-32.4-11.88-32.4-35.64V68.12h-50.76v126.36c0 23.04 6 40.56 18 52.56s27.84 18 47.52 18z"/>
+      </svg>
+    </div>
+    <div class="vlt-nav-table">
+      <div class="vlt-nav-row">
+        <div class="vlt-nav--fullscreen__header">
+          <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+              <a class="vlt-navbar-logo" href="Localized(Navbar-Logo-Url)">
+                @if (!string.IsNullOrEmpty(Model.LogoImageAltText))
+                {
+                <img style="height: 34px" src="@Model.LogoImage" alt="@Model.LogoImageAltText" loading="lazy"/>
+                }
+                else
+                {
+                string filePath = Model.LogoImage;
+                string[] fileName = filePath.Split('/');
+                string iamgeName = fileName[^1];
+                int fileExtPos = iamgeName.LastIndexOf(".");
+                if (fileExtPos >= 0)
+                {
+                iamgeName = iamgeName.Substring(0, fileExtPos);
+                }
+                <img style="height: 34px" src="@Model.LogoImage" alt="@iamgeName" loading="lazy"/>
+                }
+              </a>
+              <a class="vlt-menu-burger js-fullscreen-menu-toggle" href="#">
+                <span class="line-one"></span>
+                <span class="line-two"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="vlt-nav-row vlt-nav-row--full vlt-nav-row--center">
+        <div class="container">
+          <div class="vlt-nav--fullscreen__navigation">
+            <ul class="sf-menu" data-back-text="Localized(MenuDataBackText)">
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText1)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl1)">
+                      <span>Localized(MenuItem1SubItemText1)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl5)">
+                      <span>Localized(MenuItem1SubItemText5)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl2)">
+                      <span>Localized(MenuItem1SubItemText2)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl3)">
+                      <span>Localized(MenuItem1SubItemText3)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem1SubItemUrl4)">
+                      <span>Localized(MenuItem1SubItemText4)</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl2)">
+                  <span>Localized(MenuItemText2)</span>
+                </a>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl3)">
+                  <span>Localized(MenuItemText3)</span>
+                </a>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText8)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem8SubItemUrl1)">
+                      <span>Localized(MenuItem8SubItemText1)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem8SubItemUrl4)">
+                      <span>Localized(MenuItem8SubItemText4)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem8SubItemUrl5)">
+                      <span>Localized(MenuItem8SubItemText5)</span>
+                      </a>
+                    </li>
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText4)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem4SubItemUrl2)">
+                      <span>Localized(MenuItem4SubItemText2)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem4SubItemUrl3)">
+                      <span>Localized(MenuItem4SubItemText3)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItemUrl4)">
+                      <span>Localized(MenuItem4SubItemText1)</span>
+                    </a>    
+                  </li>
+                </ul>
+              </li>
+              <li class="menu-item-has-children">
+                <a href="#">
+                  <span>Localized(MenuItemText5)</span>
+                </a>
+                <ul class="sub-menu">
+                  <li>
+                    <a href="Localized(MenuItem5SubItemUrl1)">
+                      <span>Localized(MenuItem5SubItemText1)</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="Localized(MenuItem5SubItemUrl2)">
+                      <span>Localized(MenuItem5SubItemText2)</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl6)">
+                  <span>Localized(MenuItemText6)</span>
+                </a>
+              </li>
+              <li>
+                <a href="Localized(MenuItemUrl7)">
+                  <span>Localized(MenuItemText7)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="vlt-nav-row">
+        <div class="vlt-gap-60">
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+<div class="vlt-site-overlay">
+</div>

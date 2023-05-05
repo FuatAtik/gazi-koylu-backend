@@ -1,0 +1,10 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.SubsidiaryTradeNameList>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Item1</td>
+        <td>@item.Item2</td>
+        <td>@item.Item3</td>
+    </tr>
+}

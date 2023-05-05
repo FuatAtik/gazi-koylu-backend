@@ -1,0 +1,53 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.UnGlobalCompactWomanContent
+
+<section>
+  <div class="vlt-gap-120">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-lg-8 offset-lg-2">
+        <article class="vlt-single-post vlt-single-post--style-1">
+          <header class="vlt-single-post__header">
+            <h2 class="vlt-post-title">@Model.Title
+            </h2>
+          </header>
+          <div class="vlt-single-post__content">
+            <div class="vlt-simple-image alignfull">
+              <div
+                   class="vlt-simple-image__mask"
+                   data-aos="image-mask-animation"
+                   data-aos-delay="0">
+                <div class="inside">
+                </div>
+              </div>
+              @if (!string.IsNullOrEmpty(Model.Image))
+              {
+                if (!string.IsNullOrEmpty(Model.ImageAltText))
+                {
+                  <img src="@Model.Image" alt="@Model.ImageAltText" loading="lazy"/>
+                }
+                else
+                {
+                  string filePath = Model.Image;
+                  string[] fileName = filePath.Split('/');
+                  string iamgeName = fileName[^1];
+                  int fileExtPos = iamgeName.LastIndexOf(".");
+                  if (fileExtPos >= 0)
+                  {
+                    iamgeName = iamgeName.Substring(0, fileExtPos);
+                  }
+                  <img src="@Model.Image" alt="@iamgeName" loading="lazy"/>
+                }
+              }
+            </div>
+            <div class="vlt-gap-40">
+            </div>
+            Raw(Model.Content)
+          </div>
+          <div class="vlt-gap-70">
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

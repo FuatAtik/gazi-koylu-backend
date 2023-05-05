@@ -1,0 +1,29 @@
+@model Taigate.Data.Data.Entities.Components.YatirimcilarBlueRectArea
+
+<div class="apply-cta mt70"> 
+    <div class="apply-cta-grid">
+        <div class="cta-container">
+            <div class="font-montserrat-bold fs28">@Model.LeftText
+                <svg xmlns="http://www.w3.org/2000/svg" width="37.243" height="22.243" viewBox="0 0 37.243 22.243">
+                    <g id="Icon_feather-trending-up" data-name="Icon feather-trending-up" transform="translate(0.621 -6.879)">
+                        <path id="Path_25418" data-name="Path 25418" d="M34.5,9,20.25,23.25l-7.5-7.5L1.5,27" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                        <path id="Path_25419" data-name="Path 25419" d="M25.5,9h9v9" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                    </g>
+                </svg>
+            </div>
+        </div>
+        <div class="cta-container">
+            <div class="font-ubuntu-medium fs20">@Model.LeftColText1</div>
+            <div class="font-ubuntu-medium fs20">@Model.LeftColText2</div>
+        </div>
+        <div class="cta-container">
+            <div class="font-ubuntu-medium fs20">@Model.MiddleColText1</div>
+            <div class="font-ubuntu-medium fs20 color-green">@Model.MiddleColText2</div>
+        </div>
+        <div class="cta-container">
+            <a class="btn font-ubuntu-bold" href="@Model.RedirectUrl">@Model.RedirectText
+                <i class="icon ion-ios-arrow-right"></i>       
+            </a> 
+        </div>
+    </div>
+</div>

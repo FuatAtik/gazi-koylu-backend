@@ -1,0 +1,132 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Taigate.Core
+@using Taigate.Core.Attributes
+@model Taigate.Crispy.ViewModels.MenuViewModel
+@inject IHttpContextAccessor _httpContextAccessor;
+@{
+    List<MenuDbSet> menus = new List<MenuDbSet>();
+    List<string> sites = new List<string>();
+    string currentDomain = _httpContextAccessor.HttpContext.Request.Host.Value;
+}
+
+title = !string.IsNullOrEmpty(title) ? title : "zAdmin";
+if (!sites.Contains(site))
+{
+sites.Add(site);
+}
+<div class="sidebar-wrapper">
+    <div>
+        <div class="logo-wrapper">
+            <a href="index.html">
+                <img class="img-fluid for-light" src="../assets/images/logo/logo.png" alt=""><img class="img-fluid for-dark" src="../assets/images/logo/logo_dark.png" alt="">
+            </a>
+            <div class="back-btn">
+                <i class="fa fa-angle-left"></i>
+            </div>
+            <div class="toggle-sidebar">
+                <i class="status_toggle middle sidebar-toggle" data-feather="grid"> </i>
+            </div>
+        </div>
+        <div class="logo-icon-wrapper">
+            <a href="index.html">
+                <img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt="">
+            </a>
+        </div>
+        <nav class="sidebar-main">
+            <div class="left-arrow" id="left-arrow">
+                <i data-feather="arrow-left"></i>
+            </div>
+            <div id="sidebar-menu">
+                <ul class="sidebar-links" id="simple-bar">
+                    <li class="back-btn">
+                        <a href="index.html">
+                            <img class="img-fluid" src="../assets/images/logo/logo-icon.png" alt="">
+                        </a>
+                        <div class="mobile-back text-end">
+                            <span>Back</span><i class="fa fa-angle-right ps-2" aria-hidden="true"></i>
+                        </div>
+                    </li>
+                    @foreach (var dbSetType in Model.DbContextTypes)
+                    {
+                        string title = AttributeHelper.GetMenuTitle(dbSetType);
+                        string site = AttributeHelper.GetMenuSite(dbSetType);
+                        string domain = AttributeHelper.GetMenuDomain(dbSetType);
+                        if (!currentDomain.Contains("local"))
+                        {
+                            var domainWithOutwww = currentDomain.Replace("www.", "");
+                            if (domain != domainWithOutwww)
+                            {
+                                continue;
+                            }
+                        }
+
+                        if (string.IsNullOrEmpty(title) || string.IsNullOrEmpty(site))
+                        {
+                            continue;
+                        }
+                        string itemTitle = AttributeHelper.GetMenuItemTitle(dbSetType);
+                        string mainTitle = AttributeHelper.GetMenuMainTitle(dbSetType);
+
+                        title = !string.IsNullOrEmpty(title) ? title : "zAdmin";
+                        if (!sites.Contains(site))
+                        {
+                            sites.Add(site);
+                        }
+
+                        menus.Add(new MenuDbSet() {MenuTitle = title, DbSetName = dbSetType.Name, MenuItemTitle = itemTitle, Site = site, MenuMainTitle = mainTitle});
+                    }
+                    @foreach (var site in sites)
+                    {
+                        <li class="sidebar-main-title">
+                            <div>
+                                <h6>@site</h6>
+                                <p>@site management</p>
+                            </div>
+                        </li>
+                        foreach (var item in menus.Where(x => x.Site == site).GroupBy(item => item.MenuMainTitle).OrderBy(x => x.Key).ToList())
+                        {
+                            <li class="sidebar-list">
+                                <label class="badge badge-success">@menus.Count(x => x.MenuMainTitle == item.Key).ToString()</label>
+                                <a class="sidebar-link sidebar-title" href="#">
+                                    <i data-feather="home"></i><span>@item.Key</span>
+                                </a>
+                                <ul class="sidebar-submenu">
+
+                                    @foreach (var menutitle in menus.Where(x => x.MenuMainTitle == item.Key).GroupBy(item => item.MenuTitle).OrderBy(x => x.Key).ToList())
+                                    {
+                                        <li class="sidebar-list2">
+                                            <a class="sidebar-link sidebar-title2" href="#">
+                                                <span>@menutitle.Key</span>
+                                            </a>
+
+                                            <ul class="sidebar-submenu2">
+                                                @foreach (var menu in menus.Where(x => x.MenuTitle == menutitle.Key))
+                                                {
+                                                    if (menu.DbSetName == "User")
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("UserList", "Account")"> @menu.MenuItemTitle</a>
+                                                        </li>
+                                                    }
+                                                    else
+                                                    {
+                                                        <li>
+                                                            <a href="@Url.Action("Index", "CrispyAdminData", new {Id = menu.DbSetName})"> @menu.MenuItemTitle</a>
+                                                        </li>
+                                                    }
+                                                }
+                                            </ul>
+                                        </li>
+                                    }
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+            <div class="right-arrow" id="right-arrow">
+                <i data-feather="arrow-right"></i>
+            </div>
+        </nav>
+    </div>
+</div>

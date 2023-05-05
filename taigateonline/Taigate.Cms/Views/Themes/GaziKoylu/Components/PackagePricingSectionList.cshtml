@@ -1,0 +1,21 @@
+﻿@model List<Taigate.Data.Data.Entities.Components.GaziKoylu.PackagePricingSectionList>
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-sm-6 col-12">
+        <div class="pricing-box-layout2">
+            @if (item.IsPopular)
+            {
+                <div class="status-shape">
+                    <span class="status-text">Popüler</span>
+                </div>
+            }
+            <div class="item-price"><span class="currency">₺</span>@item.Price</div>
+            <h3 class="item-title">@item.Title</h3>
+            <ul class="block-list">
+               Raw(item.Description)
+            </ul>
+            <a href="@item.RedirectUrl" class="item-btn btn-ghost">Teklif Al</a>
+        </div>
+    </div>
+}

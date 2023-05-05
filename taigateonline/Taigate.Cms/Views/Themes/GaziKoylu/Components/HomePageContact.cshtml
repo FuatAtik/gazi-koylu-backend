@@ -1,0 +1,28 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.HomePageContact
+
+<section class="contact-wrap-layout1 section-padding-md bg-color-light">
+    <div class="container">
+        <div class="row gutters-50">
+            <div class="col-xl-5 col-lg-6 col-12">
+                <div class="contact-box-layout1 has-animation">
+                    <div class="translate-bottom-50 opacity-animation transition-100 transition-delay-100">
+                        <h2 class="item-title">@Model.Title</h2>
+                    </div>
+                    <div class="translate-bottom-50 opacity-animation transition-100 transition-delay-400">
+                        <p>@Model.Description</p>
+                    </div>
+                    Component(HomePageContactForm)
+                </div>
+            </div>
+            <div class="col-xl-7 col-lg-6 col-12 d-flex align-items-center">
+                <div class="contact-box-layout1 has-animation">
+                    <div class="translate-right-75 transition-150 opacity-animation transition-delay-10">
+                        <div class="item-figure">
+                            <img src="@Model.Image" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+@model List<Taigate.Data.Data.Entities.Components.DoganlarMobilya.Boardmembers>
+
+<section class="has-extra-light-gray-background-color">
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="text-center">
+            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                <div class="vlt-section-title vlt-section-title--style-1">
+                    <h2 class="vlt-section-title__title">Localized(Yoentim_Kurulu_Kurul_Uyeleri_Title)</h2>
+                </div>
+            </div>
+        </div>
+        <div class="vlt-gap-100"></div>
+        <div class="board-member-wrapper">
+            @foreach (var item in Model)
+            {
+                <div class="vlt-team-member vlt-team-member--style-1">
+                    <a class="vlt-team-member__avatar" href="@item.RedirectUrl">
+                        @if (!string.IsNullOrEmpty(item.ImageAltText))
+                        {
+                            <img src="@item.Image" alt="@item.ImageAltText" loading="lazy"/>
+                        }
+                        else
+                        {
+                            string filePath = item.Image;
+                            string[] fileName = filePath.Split('/');
+                            string iamgeName = fileName[^1];
+                            int fileExtPos = iamgeName.LastIndexOf(".");
+                            if (fileExtPos >= 0)
+                            {
+                                iamgeName = iamgeName.Substring(0, fileExtPos);
+                            }
+                            <img src="@item.Image" alt="@iamgeName" loading="lazy"/>
+                        }
+                    </a>
+                    <div class="vlt-team-member__content">
+                        <h5 class="vlt-team-member__name">@item.Name</h5>
+                        <p class="vlt-team-member__function">@item.Title</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

@@ -1,0 +1,63 @@
+@model Taigate.Data.Data.Entities.Components.DoganlarMobilya.Boardmembers
+
+<div id="content"></div>
+<section class="jarallax">
+    <div class="vlt-gap-120"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <div class="vlt-section-title vlt-section-title--style-1">
+                        <h2 class="vlt-section-title__title">@Model.Name</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center">
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                    <span class="vlt-display-1 has-primary-color">@Model.Title</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-40"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 offset-md-3 pr-0">
+                <div class="vlt-simple-image">
+                    <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
+                        <div class="inside"></div>
+                    </div>
+                    @if (!string.IsNullOrEmpty(Model.ImageAltText))
+                    {
+                        <img class="about-us-img-area-1" src="@Model.Image" alt="@Model.ImageAltText" loading="lazy" style="border-radius: 14px"/>
+                    }
+                    else
+                    {
+                        string filePath = Model.Image;
+                        string[] fileName = filePath.Split('/');
+                        string iamgeName = fileName[^1];
+                        int fileExtPos = iamgeName.LastIndexOf(".");
+                        if (fileExtPos >= 0)
+                        {
+                            iamgeName = iamgeName.Substring(0, fileExtPos);
+                        }
+                        <img class="about-us-img-area-1" src="@Model.Image" alt="@iamgeName" loading="lazy" style="border-radius: 14px"/>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-60"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                    <p class="fz-3">
+                        Raw(Model.Description)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="vlt-gap-120"></div>
+</section>

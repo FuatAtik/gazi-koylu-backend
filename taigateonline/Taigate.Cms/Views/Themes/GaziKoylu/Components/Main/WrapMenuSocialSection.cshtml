@@ -1,0 +1,10 @@
+﻿@model Taigate.Data.Data.Entities.Components.GaziKoylu.Footer
+<div class="offcanvas-footer">
+    <div class="item-title">Localized(Sosyal_Medyalarimiz_Text)</div>
+    <ul class="offcanvas-social">
+        @if (!string.IsNullOrEmpty(Model.FacebookUrl)){<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>}
+        @if (!string.IsNullOrEmpty(Model.TwitterUrl)){<li><a href="#"><i class="fab fa-twitter"></i></a></li>}
+        @if (!string.IsNullOrEmpty(Model.LinkedinUrl)){<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>}
+        @if (!string.IsNullOrEmpty(Model.PinterestUrl)){<li><a href="#"><i class="fab fa-pinterest"></i></a></li>}
+    </ul>
+</div>
